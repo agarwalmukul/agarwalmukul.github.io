@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Terrorism in Colombia</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="https://rawgit.com/adilyalcin/Keshif/master/keshif.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="https://rawgit.com/adilyalcin/Keshif/master/keshif.css"/ type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <script type="text/javascript" src="https://rawgit.com/adilyalcin/Keshif/master/demo/js/demo.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="https://rawgit.com/adilyalcin/Keshif/master/demo/css/style.css"/ type="text/css">
+
+        <script type="text/javascript" src="https://rawgit.com/adilyalcin/Keshif/master/demo/js/moment.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="https://rawgit.com/adilyalcin/Keshif/master/demo/js/bibParser.js" charset="utf-8"></script>
+
+        <script type="text/javascript">
+
+function resizeBrowser(){
+  $('#chart_div').height($(window).height()-80);
+
+};
+
+google.setOnLoadCallback(function(){
+  resizeBrowser();
+  $(window).resize(function() {
+    resizeBrowser();
+    browser.updateLayout();
+  });
+
+  browser = new kshf.Browser({
+    domID: "#chart_div",
+    barChartWidth: 90,
+    itemName: "records : Terrorism in Colombia",
+    leftPanelLabelWidth: 120,
+    rightPanelLabelWidth: 160,
+
+    source: {
+      gdocId: '1Z4tAjPF8RKBbgP1H6RsOyoJnELNpr2IPEuhPdR1UZTI',
+      tables: "Columbia timeline reduced"
+    },
+
+    summaries: [
+      //{name: "Year", value: "iyear", panel: 'bottom'},
+      {name: "Weapons", value: "weaptype1_txt", panel: 'left'},
+      {name: "Target of Attacks", value: "targtype1_txt", panel: 'middle' },
+      {name: "Terrorist group", value: "gname", panel : 'left'},
+      {name: "City", value: "city", panel: 'right'},
+      { name: "Year", panel: 'bottom',
+        value: function(){ if(this.idate) return this.idate.getFullYear(); },
+        //catLabel: function(){ return getMonthNameFromNumber(this.id); },
+        //catSortBy: "id", },
+      }
+    ]
+
+  });
+});
+      </script>
+  </head>
+  <body>
+    <div class="contents"><div id="chart_div" style="width:800px"></div></div>
+
+  </body>
+</html>

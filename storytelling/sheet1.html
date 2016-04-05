@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/modules/treemap.js"></script>
+           <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+           <style type="text/css">
+           body {
+            font-family: 'Roboto';
+           }
+
+           </STYLE>
+
+
+           <script type="text/javascript">
+
+          /*  // Plugin to add support for credits.target in Highcharts.
+            $(document).ready(function () {
+                Highcharts.wrap(Highcharts.Chart.prototype, 'showCredits', function (proceed, credits) {
+                    proceed.call(this, credits);
+                    if (this.credits && credits.target) {
+                       this.credits.on('click', function () {
+                           $('<a>').attr({
+                               href: credits.href,
+                               target: credits.target
+                           })[0].click();
+                       });
+                   }
+
+                });*/
+                /**
+ * Dark theme for Highcharts JS
+ * @author Torstein Honsi
+ */
+
+// Load the fonts
+Highcharts.createElement('link', {
+   href: '//fonts.googleapis.com/css?family=Unica+One',
+   rel: 'stylesheet',
+   type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+Highcharts.theme = {
+   colors: ["#ffbd4c","#4da9ff","#ff554d","#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+      "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+      chart: {
+        style: {
+            fontFamily: 'georgia, serif'
+        }
+    }
+
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+
+                $(function () {
+                    $('#container').highcharts({
+                      credits: {
+                                text: 'Mukul Agarwal',
+                                href: 'https://mukulagarwal7.wordpress.com/'
+                            },
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Casualties over the years'
+                        },
+                        subtitle: {
+                            text: 'Grouped by Terrorist Groups'
+                        },
+
+
+
+                        xAxis: {
+                            categories: [
+                                '2004',
+                                '2005',
+                                '2006',
+                                '2007',
+                                '2008',
+                                '2009',
+                                '2010',
+                                '2011',
+                                '2012',
+                                '2013',
+                                '2014'
+
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Casualties'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Unknown',
+                            data: [14	,4	,18	,9	,20	,12	,0	,1	,6,	8	,2]
+
+                        }, {
+                            name: 'National Liberation Army of Colombia (ELN)',
+                            data: [0,	9,	2,	0	,23,	4,	2,	2,	1,	22,	50]
+
+                        }, {
+                            name: 'Revolutionary Armed Forces of Colombia (FARC)',
+                            data: [ 65,	131,	59,	55,	34,	90,	53,	40,	159,	105,	88]
+
+                        }]
+                    });
+                });
+
+</script>
+</head>
+
+<body>
+ <div id="container" style="height: 400px; min-width: 500px; margin: 0 auto"></div>
+
+</body>
+</html>

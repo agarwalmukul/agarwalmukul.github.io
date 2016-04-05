@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/modules/treemap.js"></script>
+           <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+           <style type="text/css">
+           body {
+            font-family: 'Roboto';
+           }
+
+           </STYLE>
+
+
+           <script type="text/javascript">
+
+            // Plugin to add support for credits.target in Highcharts.
+        /*    $(document).ready(function () {
+                Highcharts.wrap(Highcharts.Chart.prototype, 'showCredits', function (proceed, credits) {
+                    proceed.call(this, credits);
+                    if (this.credits && credits.target) {
+                       this.credits.on('click', function () {
+                           $('<a>').attr({
+                               href: credits.href,
+                               target: credits.target
+                           })[0].click();
+                       });
+                   }
+
+                });
+                /**
+ * Dark theme for Highcharts JS
+ * @author Torstein Honsi
+ */
+
+// Load the fonts
+Highcharts.createElement('link', {
+   href: '//fonts.googleapis.com/css?family=Unica+One',
+   rel: 'stylesheet',
+   type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+/**
+ * Dark theme for Highcharts JS
+ * @author Torstein Honsi
+ */
+
+// Load the fonts
+Highcharts.createElement('link', {
+   href: '//fonts.googleapis.com/css?family=Unica+One',
+   rel: 'stylesheet',
+   type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+Highcharts.theme = {
+   colors: ["#2b908f", "#90ee7e",  "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+      "#55BF3B", "#DF5353", "#7798BF", "#f45b5b","#aaeeee"],
+      chart: {
+        style: {
+            fontFamily: 'georgia, serif'
+        }
+      }
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+$(function () {
+    $('#container').highcharts({
+      credits: {
+                text: 'Mukul Agarwal',
+                href: 'https://mukulagarwal7.wordpress.com/'
+            },
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Weapon of Choice: Explosives'
+        },
+        subtitle: {
+            text: 'Revolutionary Armed Forces of Colombia (FARC)'
+        },
+        xAxis: {
+          categories: [
+              '2004',
+              '2005',
+              '2006',
+              '2007',
+              '2008',
+              '2009',
+              '2010',
+              '2011',
+              '2012',
+              '2013',
+              '2014'
+
+          ]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Weapons used during the attacks'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'left',
+            x: 100,
+            verticalAlign: 'top',
+            itemwidth:100,
+            itemMarginTop: 3,
+            y: 45,
+            width: 150,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false,
+            maxHeight: 400
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '<br/>' +
+                    'Total: ' + this.point.stackTotal;
+            }
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Explosives',
+            data: [17,	14,	13,	15,	61,	47,	80,	50,	66,	71,	108]
+        }, {
+            name: 'Firearms',
+            data: [8,	14,	7,	6,	8,	28,	19,	18,	15,	20,	19]
+        }, {
+            name: 'Incendiary',
+            data: [0,0,		5,0,9,	20,	14,	9,0,		2,	16]
+        },{
+            name: 'Milee',
+            data: [0,	0,	0,	0,	1,	1,	0,	0,	0,	0,	0]
+        }, {
+            name: 'Sabotage Equipment',
+            data: [0,	0,	0,	1,	0,	1,	0,	0,	0,	0,	0]
+        }, {
+            name: 'Unknown',
+            data: [1,	2,	8,	1,	10,	6,	7,	6,	4,	11,	20]
+        }
+      ]
+    });
+});
+
+</script>
+</head>
+
+<body>
+ <div id="container" style="height: 400px; min-width: 500px; margin: 0 auto"></div>
+
+</body>
+</html>

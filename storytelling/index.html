@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/modules/treemap.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <style type="text/css">
+          .filler{
+            padding-top: 30px;
+                      }
+          .section {
+
+              max-width: 1000px;
+              padding: 0.5em 1em 1em 1em;
+              margin-top: 0em;
+              margin-bottom: 1em;
+              margin-left: auto;
+              margin-right: auto;
+              border-bottom: 10px solid #B24952;
+
+          }
+          h7 {
+              padding-left: 15px;
+              padding-top: 10px;
+          }
+          p {
+           padding-left: 15px;
+           padding-right: 15px;
+           padding-top: 5px;
+           padding-bottom: 5px;
+           font-size: 1.2em;
+          }
+          img {
+              margin: 20px;
+          }
+          h1, h3 {
+              text-align: center;
+          }
+          h2 {
+            text-align: center;
+
+          }
+          iframe{
+            padding: 0;
+            margin: 0;
+          }
+          body{
+            padding-top: 15px;
+            background-color: #f0f0f0;
+            font-family: georgia,serif;
+
+          }
+        </style>
+      
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Terrorism</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#farc">Terrorist Groups</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#exploratory">Explore</a></li>
+            <li><a href="#contributors">Contributors</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+      <div id="home" class = "filler"></div>
+      <div class ="section" >
+          <h1>Terrorism: A Micro-Study of Colombia</h1>
+          <p>According to the Global Terrorism Database (GTD), Colombia is ranked in the top 5 countries with the most terrorist attacks from 1970 to 2014. The Global Terrorism Database (GTD) is a database including details of all terrorist attacks worldwide from 1970 through 2014. It was updated to include 2014 in November 2015. The database excludes the year 1993 due to data issues. The database contains over 140,000 terrorist attacks globally and is maintained by the National Consortium for the Study of Terrorism and Responses to Terrorism (START) at the University of Maryland, College Park, Maryland. </p>
+          <p>The GTD is “currently the most comprehensive unclassified data base on terrorist events in the world,” according to <a href="http://www.start.umd.edu/" target="_blank">START’s website</a>.</p>
+          <p>Although other expected countries rank higher in total number of attacks, like Afghanistan for example, Colombia is the most attacked country closest in proximity to the United States. Additionally, Colombia has the highest number of terrorist attacks in the Americas, according to the GTD.</p>
+
+      </div>
+      <div class ="section">
+          <h2>Colombia</h2>
+          <p>Since 2004, Colombia has seen a steady increase in terrorist attacks from more than 50 different terrorist groups. Bogota is the capital city of Colombia and is one of the most attacked cities over the past decade due to its strategic importance.
+          </p>
+          <iframe src="map.html" width="98%" height="400" scrolling="no" style = "margin:0px 10px 0px 10px" frameborder="0"></iframe>
+          <iframe src="line.html" width="100%" height="270" scrolling="no" frameborder="0"></iframe>
+
+          <p>Although the number of attacks in Colombia fluctuates over time from 2004 to 2014, The Revolutionary Armed Forces of Colombia (FARC) account for at least 40% of all attacks each year. Formed in 1964, FARC has been involved in the lengthy Colombian conflict.</p>
+          <iframe src="column.html" width="100%" height="320" scrolling="no" frameborder="0"></iframe>
+        <div id="farc" class = "filler"></div>
+       </div>
+
+      <div class ="section">
+          <h2>Terrorist Groups</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Revolutionary_Armed_Forces_of_Colombia_%28FARC%29_insurgents.GIF" align="right" border="2"></img>
+          <p></p>
+          <p>Overall, nearly one half of the 3,793 attacks during the past 10 years in Colombia were attributed to The Revolutionary Armed Forces of Colombia (FARC). The group’s acronym comes from the original Spanish translation “Fuerzas Armadas Revolucionarias de Colombia.” </p>
+          <p>FARC, a violent group funded in part by kidnapping and ransom, is labeled a terrorist organization by Colombia and the United States, among other countries.</p>
+          <p>The group claims to represent the poor people of Colombia and opposes the United States’ involvement in Colombian affairs.</p>
+
+
+          <iframe src="sheet1.html" width="100%" height="420" scrolling="no"  frameborder="0"></iframe>
+
+          <p>According to the <a href="http://www.bbc.com/news/world-latin-america-23394408">BBC</a>, FARC had 8,000 members in 2013.  However, the exact numbers of FARC are unknown. The Colombian government, FARC and various media outlets have cited numbers of members ranging from 7,000 to 18,000 since 2007. </p>
+          <p>In 2015, FARC and the Colombian government are discussing peace and a ceasefire.</p>
+          <iframe src="tree.html" width="100%" height="420" scrolling="no"  frameborder="0"></iframe>
+          <iframe src="sheet5.html" width="100%" height="420" scrolling="no" frameborder="0"></iframe>
+          <iframe src="sheet9FARC.html" width="100%" height="420" scrolling="no" frameborder="0"></iframe>
+          <p>Often terror attacks are unclaimed which accounts for some of many attacks filed under the "Unknown" group.</p>
+          <div id="timeline" class = "filler"></div>
+      </div>
+
+
+      <div class ="section">
+          <h2>Timeline</h2>
+          <iframe src="http://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1rWDclKot5OaPTKdaJnbupv6CjXpiQfVujo32JOtHeq0&font=OpenSans-GentiumBook&lang=en&initial_zoom=2&height=650" scrolling = "no" width="100%" height="650" frameborder="0"></iframe>
+          <div id="exploratory" class = "filler"></div>
+      </div>
+      <div class ="section">
+          <h2>Explore</h2>
+          <h4 style= "padding-left: 1em">Instructions</h4>
+          <p>1. Click on any bar to filter data on the basis of that bar.<br>
+          2. Use the slider at the bottom of the Year label to filter data on the basis of time.<br>
+          3. Click on the lock sign to lock that layer and compare with other bars.<br>
+          4. Remove filters by clicking on the corresponding cross button at the top.
+        </p>
+
+          <iframe src="keshifv1.html" scrolling = "no" width="100%" height="650" frameborder="0" style="background-color: white"></iframe>
+          <div id="contributors" class = "filler"></div>
+      </div>
+
+
+      <div class ="section">
+          <h2>Contributors</h2>
+          <ul>
+          <li>Joey Trull: Text, Timeline, Treemap, Column Graph</li>
+          <li>Mukul Agarwal: Webpage, Grouped bar chart, Stacked bar chart, Stacked bar chart,  Exploratory Visualization</li>
+          <li>Jeremy Bell: Webpage, Maps</li>
+          <li>Source: National Consortium for the Study of Terrorism and Responses to Terrorism (START). (2015). Global Terrorism Database [Data file]. Retrieved from http://www.start.umd.edu/gtd.</li>
+          <li>Images provided by WikiCommons and cited individually.</li>
+          </ul>
+          </p>
+      </div>
+
+  </body>
+</html>

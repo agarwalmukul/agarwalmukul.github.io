@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/treemap.js"></script>
+           <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+           <style type="text/css">
+           body {
+            font-family: 'Roboto';
+           }
+
+           </STYLE>
+
+
+           <script type="text/javascript">
+
+            // Plugin to add support for credits.target in Highcharts.
+            $(document).ready(function () {
+                Highcharts.wrap(Highcharts.Chart.prototype, 'showCredits', function (proceed, credits) {
+                    proceed.call(this, credits);
+                    if (this.credits && credits.target) {
+                       this.credits.on('click', function () {
+                           $('<a>').attr({
+                               href: credits.href,
+                               target: credits.target
+                           })[0].click();
+                       });
+                   }
+
+                });
+
+                    $(function () {
+                    Highcharts.setOptions({
+                        lang: {
+                            thousandsSep: ',',
+                            decimalPoint: '.'
+                        }
+                    })
+                    });
+ $('#container').highcharts({
+       credits: {
+            text: 'joeytrull.com',
+            href: 'http://www.joeytrull.com'
+        },
+        series: [{
+            type: 'treemap',
+            layoutAlgorithm: 'sliceAndDice',
+            data: [{
+                name: 'Revolutionary Armed Forces of Colombia (FARC)',
+                value: 1591,
+                color: '#ff554d'
+            }, {
+                name: 'Unknown',
+                value: 1046,
+                color: '#ffbd4c'
+            }, {
+                name: 'National Liberation Army of Colombia (ELN)',
+                value: 639,
+                color: '#4da9ff'
+            }, {
+                name: 'Other*',
+                value: 517,
+                color: '#888888'
+            }]
+        }],
+        title: {
+            text: 'Terrorist Attacks by Organization (2004-2014)'
+        },
+        subtitle: {
+            text: '*=includes 51 terrorist organizations'
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+ <div id="container" style="height: 400px; min-width: 625px; margin: 0 auto"></div>
+
+</body>
+</html>

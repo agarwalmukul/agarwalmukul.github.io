@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CartoDB Map Demo</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+      html, body, #map {
+        padding: 0;
+        margin: 0;
+		height: 100%;
+		background: #cdd2d4;
+		overflow-y: hidden;
+      }
+	  div{
+		display: inline-block;
+	  }
+	  #map {
+		width: 90%;
+		margin: 0 auto;
+	  }
+	  .clicker {
+		font-size: 3em;
+		width: 4.5%;
+		text-align: center;
+		vertical-align: top;
+		margin: 20% 0 0;
+		cursor: pointer;
+		color: #555;
+	  }
+	  .clicker:hover {
+		color: white;
+	  }
+    </style>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  </head>
+  <body>
+	<div id="left-clicker" class="clicker">&lt;</div>
+	<div id="map"></div>
+	<div id="right-clicker" class="clicker">&gt;</div>
+	<div id="credit"><a href="https://developer.yahoo.com/geo/geoplanet/"> fetched by Yahoo GeoPlanet API</a></div>
+	
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <script>
+	function loadJSON(file, callback) {   
+		//Loads the JSON and then uses the callback to handle the json.
+		var jsonRequest = new XMLHttpRequest();
+		jsonRequest.overrideMimeType("application/json");
+		jsonRequest.open('GET', file, true);
+		jsonRequest.onreadystatechange = function () {
+			  if (jsonRequest.readyState == 4 && jsonRequest.status == "200") {
+				callback(jsonRequest.responseText);
+			  }
+		};
+		jsonRequest.send(null);  
+	 }
+	 var jsonData = {};//Associative list for easy navigating
+	function load(country_text){
+		//loading wrapper
+		
+		//API pulled from yahoo. Yahoo does the search. appid is necessary in order to have the api work.
+		loadJSON("http://where.yahooapis.com/v1/places.q('" + country_text + "')?format=json&appid=dj0yJmk9cTN5emphQm1ncGh4JmQ9WVdrOVlsQk5jWFZNTlRZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00ZQ--", function(response) {
+			jsonData[country_text.toLowerCase()] = JSON.parse(response).places.place[0];
+		});
+	}
+	function getCountryCoordinates(country_str) {
+		//Returns the bounding box of a country (Southwest -> Northeast)
+		var search = jsonData[country_str.toLowerCase()];
+		if (typeof search === 'undefined' || country_str == 'world') {
+			//Default if country isn't found (world view)
+			return [[-60, -120],[60,120]];
+		}
+		else {
+			//Assemble the bounding box of the found country for leaflet use
+			var bb = search.boundingBox;
+			return [[bb.southWest.latitude, bb.southWest.longitude],[bb.northEast.latitude, bb.northEast.longitude]];
+		}
+	}
+	var world = new Place ('World', null);
+	function Place(name, region){
+		//Gets country from yahoo api
+		load(name);
+		this.name = name.toLowerCase();
+		this.parent = region;
+		this.children = [];
+		this.coordinates = 0;
+		this.annotation;
+		if (typeof this.parent === 'undefined' && this.parent != null) {
+			this.region = world;
+		}
+		//Loaded it's within this area (Bogota would be the child to Colombia)
+		this.addChild = function(newChild) {
+			this.children.push(newChild);
+		};
+		//Sets coordinates if they don't exist and then returns coordinates.
+		this.getCoordinates = function() {
+			if (this.coordinates == 0) {
+				this.coordinates = getCountryCoordinates(this.name);
+			}
+			return this.coordinates;
+		};
+		
+		//Returns list of parents // used by getClosestParent
+		this.parentTree = function() {
+			var parent = this;
+			var parents = [parent,];
+			while(parent != null&&parent.name != 'World') {
+				parent = parent.parent;
+				parents.push(parent);
+			}
+			return parents;
+		};
+		
+		
+		//Animation reasons (to tell user where we're looking at the map)
+		this.getClosestParent = function(place) {
+			var parents = this.parentTree();
+			var searchParents = place.parentTree();
+			for (var i = 0; i < parents.length; i++) {
+				for (var j = 0; j < searchParents.length; j++) {
+					if (searchParents[j]!=null&&parents[i].name!=null && searchParents[j].name == parents[i].name) {
+						return searchParents[j];
+					}
+				}
+			}
+			return world;
+		};
+		if (this.parent != null) {
+			this.parent.addChild(this);
+		}
+	}
+      function main() {
+	  var places = {'World': world,};
+		//API by yahoo gives JSON based on query passed. These are the preloaded queries
+		var preloadedCountries = ["Colombia"];
+		for(var i = 0; i < preloadedCountries.length; i++) {
+			places[preloadedCountries[i]] = new Place(preloadedCountries[i], places['World']);
+		}
+		var preloadCities = [ ['Bogota', places['Colombia']],];
+		for (var i = 0; i < preloadCities.length; i++) {
+			places[preloadCities[i][0]] = new Place(preloadCities[i][0], preloadCities[i][1]); 
+		}
+		//Positron
+		var base = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>, Location Search Data Provided by <a href="https://developer.yahoo.com/geo/geoplanet/">Yahoo GeoPlanet</a>'
+
+        });
+		
+		//Create leaflet map
+        var map = new L.Map('map', {
+          zoomControl: true,
+		  center:[0,0],
+          zoom: 2,
+		  layers: [base,],
+		  zoomAnimationThreshold: 20,
+        });
+		
+		var layers = [];
+		
+		//Layers added via JSON to put on top of the base layer (Positron)
+		
+		
+		//Heatmap
+		cartodb.createLayer(map, 'https://unmocked.cartodb.com/api/v2/viz/7613e4fe-909d-11e5-8da4-0e674067d321/viz.json').addTo(map).on("done", function(layer) {
+			layers.push(layer);
+		});
+		
+		//Specific groups
+        cartodb.createLayer(map, 'https://unmocked.cartodb.com/api/v2/viz/0d8cc83c-9aa8-11e5-89a3-0ecd1babdde5/viz.json').addTo(map).on("done", function(layer) {
+			layers.push(layer);
+			layer.hide();
+			change(0);
+		});
+		
+		
+		var panPlaces = [["World", 0], ["Colombia", 0], ["Colombia", 1], ["Bogota", 1]];
+		var ix = 0;
+		var legend;
+		function change(amount) {
+			var curr = places[panPlaces[ix][0]];
+			var currMap = panPlaces[ix][1];
+			ix+= amount;
+			if(ix < 0) {//Circular
+				ix += panPlaces.length;
+			} else if (ix >= panPlaces.length) {
+				ix -= panPlaces.length;
+			}
+			//Switch to new map if necessary
+			var newMap = panPlaces[ix][1];
+			
+			if (currMap != newMap) {
+				layers[currMap].hide();
+				layers[newMap].show();
+			}
+			var next = places[panPlaces[ix][0]];
+			map.fitBounds(next.getClosestParent(curr).getCoordinates());
+			setTimeout(function(){map.fitBounds(next.getCoordinates(), {animate:true})}, 500);
+			
+			//Adjust legend's display (bug in CartoDB)
+			if (typeof legend === 'undefined') {
+				legend = document.getElementsByClassName("cartodb-legend-stack")[0];
+			}
+			if (newMap == 1) {
+				legend.style.display = 'inline-block';
+			} else {
+				legend.style.display = 'none';
+			}
+		}
+		//Making the right/left buttons change view
+		document.getElementById("right-clicker").addEventListener("click", function(e){
+			change(1)
+	  });
+	  document.getElementById("left-clicker").addEventListener("click", function(e){
+			change(-1);
+	  });
+      }
+	  
+      window.onload = main;
+    </script>
+  </body>
+</html>
