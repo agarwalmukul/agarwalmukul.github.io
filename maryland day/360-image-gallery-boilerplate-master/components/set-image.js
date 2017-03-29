@@ -25,6 +25,7 @@ AFRAME.registerComponent('set-image', {
       setTimeout(function () {
         // Set image.
         data.target.setAttribute('material', 'src', data.src);
+        #tex2.seteAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
       }, data.dur);
     });
   },
@@ -33,6 +34,7 @@ AFRAME.registerComponent('set-image', {
    * Setup fade-in + fade-out.
    */
   setupFadeAnimation: function () {
+  /**
     var data = this.data;
     var targetEl = this.data.target;
 
@@ -50,4 +52,5 @@ AFRAME.registerComponent('set-image', {
       to: '#000'
     });
   }
+  *//
 });
