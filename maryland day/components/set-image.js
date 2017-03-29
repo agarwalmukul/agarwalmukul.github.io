@@ -6,7 +6,7 @@
  */
 
 
-registerAframeVideoBillboard(window.AFRAME);
+//registerAframeVideoBillboard(window.AFRAME);
 
 AFRAME.registerComponent('set-image', {
   schema: {
