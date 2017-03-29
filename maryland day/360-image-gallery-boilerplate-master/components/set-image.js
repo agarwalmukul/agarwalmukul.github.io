@@ -25,7 +25,7 @@ AFRAME.registerComponent('set-image', {
       setTimeout(function () {
         // Set image.
         data.target.setAttribute('material', 'src', data.src);
-        document.querySelector("#tex2").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
+        document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
       }, data.dur);
     });
   },
