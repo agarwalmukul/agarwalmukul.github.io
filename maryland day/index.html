@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+	<script type="text/javascript">
+	AFRAME.registerComponent('set-image', {
+	  schema: {
+	    on: {type: 'string'},
+	    target: {type: 'selector'},
+	    src: {type: 'string'},
+	    dur: {type: 'number', default: 300}
+	  },
+	  init: function () {
+	    // ...
+	  },
+	  setupFadeAnimation: function () {
+	    // Appends an <a-animation> that fades to black.
+	  }
+	});
+	</script>
+  </head>
+
+  <body>
+  	<!--
+  	<script>
+	  AFRAME.registerComponent('scale-on-mouseenter', {
+	    schema: {
+	      to: {default: '2.5 2.5 2.5'}
+	    },
+	    init: function () {
+	      var data = this.data;
+	      this.el.addEventListener('mouseenter', function () {
+	        this.setAttribute('scale', data.to);
+	      });
+	    }
+	  });
+	</script>
+	-->
+    <a-scene>
+		<a-assets>
+		    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		    <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+		    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+		    <!<a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
+    position="-3 1 -4">
+			<!</a-sound>
+	  	</a-assets>
+	  	<a-sky src="#skyTexture"></a-sky>
+	  	
+    	<a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+  			<a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000"
+      repeat="indefinite"></a-animation>
+		 <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+		  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+		  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+  		</a-box>
+  		
+  		<a-camera>
+  		<a-cursor></a-cursor>
+  		<a-plane src="#groundTexture" position="-0.75 0 -1" rotation="0 0 0" width="1.5" height="1.5"></a-plane>
+  		<a-plane src="#groundTexture" position="0.75 0 -1" rotation="0 0 0" width="1.5" height="1.5"></a-plane>
+  		</a-camera>
+	</a-scene>
+  <body>
+</html>
