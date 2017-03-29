@@ -1,33 +1,11 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-	<script type="text/javascript">
-	AFRAME.registerComponent('set-image', {
-	  schema: {
-	    on: {type: 'string'},
-	    target: {type: 'selector'},
-	    src: {type: 'string'},
-	    dur: {type: 'number', default: 300}
-	  },
-	  init: function () {
-  var data = this.data;
-  var el = this.el;
-  this.setupFadeAnimation();
-  el.addEventListener(data.on, function () {
-    // Fade out image.
-    data.target.emit('set-image-fade');
-    // Wait for fade to complete.
-    setTimeout(function () {
-      // Set image.
-      data.target.setAttribute('material', 'src', data.src);
-    }, data.dur);
-  });
-},
-	  setupFadeAnimation: function () {
-	    // Appends an <a-animation> that fades to black.
-	  }
-	});
-	</script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+	<script src="components/set-image.js"></script>
   </head>
 
   <body>
@@ -51,8 +29,8 @@
 		    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
 		    <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
 		    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-		    <img id="tex1" src="./data/output_1.png">
-		    <img id="tex2" src="./data/output_2.png">
+		    <img id="tex1" src="data/output_1.png">
+		    <img id="tex2" src="data/output_2.png">
 		    <!<a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
     position="-3 1 -4">
 			<!</a-sound>
