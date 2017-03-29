@@ -24,9 +24,9 @@ AFRAME.registerComponent('set-image', {
       // Wait for fade to complete.
       setTimeout(function () {
         // Set image.
-        data.target.setAttribute('material', 'src', data.src);
+        data.target.setAttribute('material', 'src', "#tex" + data.src);
         //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
-        document.querySelector("#right-eye").setAttribute('material', 'src', "#tex3");
+        document.querySelector("#right-eye").setAttribute('material', 'src', "#tex" + eval(data.src + "+1")  );
       }, data.dur);
     });
   },
