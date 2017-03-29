@@ -16,6 +16,7 @@
 		    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
 		    <img id="tex1" src="data/output_1.png">
 		    <img id="tex2" src="data/output_2.png">
+		    <img id="tex3" src="data/output_3.png">
 		    <!<a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
     position="-3 1 -4">
 			<!</a-sound>
@@ -28,7 +29,7 @@
 	            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
 	            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
 	            event-set__4="_event: mouseleave; scale: 1 1 1"
-	            set-image="on: click; target: #left-eye; src: ${src}"
+	            set-image="on: mouseenter; target: #left-eye; src: ${src}"
 	            sound="on: click; src: #click-sound"></a-entity>
 	        </script>
 	  	</a-assets>
@@ -43,7 +44,7 @@
   		</a-box>
   		
 		<a-entity id="links" layout="type: line; margin: 1.5" position="0 0 -4">
-	        <a-entity template="src: #link" data-src="#cubes" data-thumb="#tex2"></a-entity>
+	        <a-entity template="src: #link" data-src="#tex2" data-thumb="#cubes-thumb"></a-entity>
 	        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
 	        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       	</a-entity>
