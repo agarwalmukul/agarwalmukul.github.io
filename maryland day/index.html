@@ -9,21 +9,6 @@
   </head>
 
   <body>
-  	<!--
-  	<script>
-	  AFRAME.registerComponent('scale-on-mouseenter', {
-	    schema: {
-	      to: {default: '2.5 2.5 2.5'}
-	    },
-	    init: function () {
-	      var data = this.data;
-	      this.el.addEventListener('mouseenter', function () {
-	        this.setAttribute('scale', data.to);
-	      });
-	    }
-	  });
-	</script>
-	-->
     <a-scene>
 		<a-assets>
 		    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
@@ -34,21 +19,40 @@
 		    <!<a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
     position="-3 1 -4">
 			<!</a-sound>
+			<!-- Image link template to be reused. -->
+	        <script id="link" type="text/html">
+	          <a-entity class="link"
+	            geometry="primitive: plane; height: 1; width: 1"
+	            material="shader: flat; src: ${thumb}"
+	            event-set__1="_event: mousedown; scale: 1 1 1"
+	            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+	            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+	            event-set__4="_event: mouseleave; scale: 1 1 1"
+	            set-image="on: click; target: #image-360; src: ${src}"
+	            sound="on: click; src: #click-sound"></a-entity>
+	        </script>
 	  	</a-assets>
 	  	<a-sky src="#skyTexture"></a-sky>
 	  	
     	<a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
   			<a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000"
-      repeat="indefinite"></a-animation>
+      		repeat="indefinite"></a-animation>
 		 <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
 		  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
 		  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
   		</a-box>
   		
+		<a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+	        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+	        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+	        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+      	</a-entity>
+
   		<a-camera>
   		<a-cursor></a-cursor>
   		<a-plane src="#tex1" position="-0.75 0 -1" rotation="0 0 0" width="1.5" height="1.5"></a-plane>
-  		<a-plane src="#tex2" position="0.75 0 -1" rotation="0 0 0" width="1.5" height="1.5"></a-plane>
+  		<!<a-plane src="#tex2" position="0.75 0 -1" rotation="0 0 0" width="1.5" height="1.5">
+  		<!-</a-plane>
   		</a-camera>
 	</a-scene>
   <body>
