@@ -40,7 +40,7 @@
 	            sound="on: click; src: #click-sound"></a-entity>
 	        </script>
 	  	</a-assets>
-	  	
+
   		<a-camera>
   		<a-cursor></a-cursor>
 
@@ -49,7 +49,10 @@
   		<!-</a-plane>
   		</a-camera>
 
-	  	<a-sky src="#skyTexture"></a-sky>
+  		<a-entity cubemap="folder: data/mckeldin-mall/"></a-entity>
+
+	  	<!--<a-sky src="#skyTexture"></a-sky>
+	  -->
 
 	  	<a-entity id="links" layout="type: line; margin: 0.2" position="-9 1 -4" rotation="0 0 0">
 	  		<a-entity template="src: #link" data-src="1" data-thumb=""></a-entity>
