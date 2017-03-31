@@ -141,12 +141,13 @@
 	-->
 	  	<a-entity cubemap="folder: data/mckeldin-mall/"></a-entity>
 
+  		<a-plane id="left-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex1" position="0.75 0 -4" rotation="0 0 0" width="0.917" height="1.5"></a-plane>
+  		<a-plane id="right-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex2"  position="2.25 0 -4" rotation="0 0 0" width="0.917" height="1.5">
+
 	  	<a-camera>
   		<a-cursor></a-cursor>
 
-  		<a-plane id="left-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex1" position="-0.75 0 -4" rotation="0 0 0" width="0.917" height="1.5"></a-plane>
-  		<a-plane id="right-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex2"  position="0.75 0 -4" rotation="0 0 0" width="0.917" height="1.5">
-  		<!-</a-plane>
+
   		
   		</a-camera>
 
