@@ -6,6 +6,7 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
 	<script src="components/set-image.js"></script>
+	<script src="components/aframe-stereo-component.min.js"></script>
 	<script src="https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.min.js"></script>
   </head>
 
@@ -44,8 +45,8 @@
 	        </script>
 	  	</a-assets>
 
-
-		<a-camera rotation ="0 0 0">
+	  	<a-camera cursor-visible="false" stereocam="eye:left;"></a-camera>
+		<!-<a-camera rotation ="0 0 0">
   		<a-cursor></a-cursor>
 
 
@@ -146,8 +147,8 @@
 	-->
 	  	<a-entity cubemap="folder: data/mckeldin-mall/" position = "0 0 0"></a-entity>
 
-  		<a-plane id="left-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex1" position="2.75 4 -10" rotation="0 0 0" width="2.75" height="4.5"></a-plane>
-  		<a-plane id="right-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex2"  position="6.75 4 -10" rotation="0 0 0" width="2.75" height="4.5">
+  		<a-plane id="left-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex1" position="6.75 3.25 -10" rotation="0 0 0" width="2.75" height="4.5" stereo="eye:left"></a-plane>
+  		<a-plane id="right-eye" material="shader: flat; transparent: true; opacity: 1" src="#tex2"  position="6.75 3.25 -10" rotation="0 0 0" width="2.75" height="4.5" stereo="eye:right">
 
 
 	  	
