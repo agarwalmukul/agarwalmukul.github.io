@@ -10,7 +10,7 @@ function handleOrientation(event) {
   xpos += 180;
   //ypos += 90;
 
-  var image_num = (zpos/20)%7;
+  var image_num = Math.floor((zpos/20)%7);
 
   ball.setAttribute('position', {x: 1.75+(xpos/90), y: 1.25+image_num, z: -4});
         document.querySelector("#left-eye").setAttribute('material', 'src', "#tex" + image_num.toString() );
