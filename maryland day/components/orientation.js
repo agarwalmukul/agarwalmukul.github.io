@@ -9,6 +9,10 @@ function handleOrientation(event) {
   var zpos = event.alpha; // In degree in the range [0,360]
 
   xpos += 180;
+  zpos-=180;
+  if(zpos<0){
+    zpos= 360 + zpos;
+  }
   //zpos+=180;
   //ypos-=180
   //ypos += 90;
