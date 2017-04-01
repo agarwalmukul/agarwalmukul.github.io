@@ -6,7 +6,8 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
 	<script src="components/set-image.js"></script>
-	<script src="components/orientation.js"></script>
+	<!-<script src="components/orientation.js">
+	<!-</script>
 	<script src="components/aframe-stereo-component-master/dist/aframe-stereo-component.js"></script>
 	<script src="https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.min.js"></script>
   </head>
@@ -50,8 +51,6 @@
 	  	<a-camera position="0 0 0" stereocam="eye:left;">
           <a-cursor color="black"></a-cursor>
       </a-camera>
-
-<pre class="output"></pre>
 
 	  	<!--
 
@@ -215,5 +214,21 @@
       	</a-entity>
       -->
 	</a-scene>
+	<script type="text/javascript">
+	var ball= document.querySelector('#left-eye');
+
+}
+function handleOrientation(event) {
+  var xpos = event.beta;  // In degree in the range [-180,180]
+  var ypos = event.gamma; // In degree in the range [-90,90]
+
+  xpos += 90;
+  ypos += 90;
+
+  ball.setAttribute('position', {x: xpos/9, y: ypos/9, z: -4});
+}
+
+window.addEventListener('deviceorientation', handleOrientation);
+</script>
   <body>
 </html>
