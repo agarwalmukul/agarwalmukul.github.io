@@ -10,10 +10,10 @@ function handleOrientation(event) {
   xpos += 180;
   //ypos += 90;
 
-  int image_num = (zpos/20)%7;
+  var image_num = (zpos/20)%7;
 
   //ball.setAttribute('position', {x: 1.75+(xpos/90), y: 1.25+(zpos/10), z: -4});
-         ocument.querySelector("#left-eye").setAttribute('material', 'src', "#tex" + image_num.toString() );
+        document.querySelector("#left-eye").setAttribute('material', 'src', "#tex" + image_num.toString() );
         //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
         document.querySelector("#right-eye").setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 
