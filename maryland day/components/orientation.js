@@ -1,5 +1,3 @@
-var image_num=0;
-var static=0;
 function orientation(){
 
 var left= document.querySelector('#left-eye');
@@ -15,14 +13,7 @@ function handleOrientation(event) {
   //ypos-=180
   //ypos += 90;
 
-  var temp = Math.floor((zpos/3)%7)+1;
-  if(static==0 && temp!=0){
-    static = temp;
-  }
-  if(static!=temp){
-  if(temp>image_num){image_num++;}
-  else{image_num--;}
-}
+  var image_num = Math.floor((zpos/3)%7)+1;
 
   //ball.setAttribute('position', {x: 1.75, y: 1.25+image_num, z: -4});
         left.setAttribute('material', 'src', "#tex" + image_num.toString() );
