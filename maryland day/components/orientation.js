@@ -32,7 +32,9 @@ function handleOrientation(event) {
   
    var image_num = Math.floor((zpos/3)%13)+1;
   if(image_num>7){
+    alert(image_num+"");
     image_num=14-image_num;
+    alert(image_num+"");
   }
 
   //ball.setAttribute('position', {x: 1.75, y: 1.25+image_num, z: -4});
