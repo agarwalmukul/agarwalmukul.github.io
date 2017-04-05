@@ -45,13 +45,13 @@ function handleOrientation(event) {
     pos = (Math.floor(zpos/width))%7;}
   else{
     pos = 6 - (Math.floor(zpos/width))%7;}
-  image_num = pos+7;
+  image_num = pos+20;
   //var image_num = Math.floor((zpos/3)%13)+1;//1-13
   //if(image_num>7){
    // image_num=14-image_num;
   //}
 
-  //left.setAttribute('material', 'src', "#tex" + image_num.toString() );
+  left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 }
