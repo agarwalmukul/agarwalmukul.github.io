@@ -31,6 +31,7 @@ function handleOrientation(event) {
   //var image_num = Math.floor((zpos/3)%7)+1;
   
    var image_num = Math.floor((zpos/3)%13)+1;
+   alert(image_num+"");
   if(image_num>7){
     alert(image_num+"");
     image_num=14-image_num;
