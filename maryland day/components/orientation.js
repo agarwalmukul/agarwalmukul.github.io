@@ -39,6 +39,7 @@ function handleOrientation(event) {
     }
   }
   */
+  temp = image_num;
   var width = 360/(28*7);
   var x=(Math.floor(zpos/width)/7)% 2;
   if(x==0){
@@ -46,6 +47,9 @@ function handleOrientation(event) {
   else{
     pos = (Math.floor(zpos/width))%7;}
   image_num = pos+1;
+  if(temp!=image_num){
+    alert("image is " + image_num);
+  }
   //var image_num = Math.floor((zpos/3)%13)+1;//1-13
   //if(image_num>7){
    // image_num=14-image_num;
