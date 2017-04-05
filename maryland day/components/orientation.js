@@ -2,7 +2,7 @@
 function orientation(){
 var left= document.querySelector('#left-eye');
 var right= document.querySelector('#right-eye');
-//boolean increase = false;
+var increase = false;
  
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
@@ -14,7 +14,7 @@ function handleOrientation(event) {
   if(zpos<0){
     zpos = 360 + zpos;
   }
-  /*
+  
   var temp = image_num;
   var image_num = Math.floor((zpos/3)%7)+1;
   if(image_num!=temp){
@@ -37,13 +37,13 @@ function handleOrientation(event) {
       image_num=temp--;
     }
   }
-  */
   
+  /*
   var image_num = Math.floor((zpos/3)%13)+1;
   if(image_num>7){
     image_num=14-image_num;
   }
-
+*/
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
