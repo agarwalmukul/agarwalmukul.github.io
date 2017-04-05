@@ -13,9 +13,6 @@ setTimeout(function(){
 
  }
  */
-//var image_num = 1;
-//bool increase = true;
-
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
@@ -30,11 +27,7 @@ function handleOrientation(event) {
   //ypos-=180
   //ypos += 90;
 
-  //var image_num = Math.floor((zpos/3)%7)+1;
-  var image_num = Math.floor((zpos/3)%13)+1;
-  if(image_num>7){
-    image_num=14-image_num;
-  }
+  var image_num = Math.floor((zpos/3)%7)+1;
 
   //ball.setAttribute('position', {x: 1.75, y: 1.25+image_num, z: -4});
         left.setAttribute('material', 'src', "#tex" + image_num.toString() );
