@@ -10,9 +10,9 @@ function handleOrientation(event) {
 
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
-  zpos-=180;
+  zpos-=180; //-180 to 180
   if(zpos<0){
-    zpos = 360 + zpos;
+    zpos = 360 + zpos; //360-180 0-180
   }
 
   var image_num = Math.floor((zpos/3)%7)+1;
