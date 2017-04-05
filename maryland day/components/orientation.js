@@ -36,10 +36,11 @@ function handleOrientation(event) {
       image_num=temp--;
     }
   }
+  /*
   var image_num = Math.floor((zpos/3)%13)+1;
   if(image_num>7){
     image_num=14-image_num;
-  }
+  }*/
 
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
