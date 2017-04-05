@@ -51,7 +51,7 @@ function handleOrientation(event) {
    // image_num=14-image_num;
   //}
 
-  left.setAttribute('material', 'src', "#tex" + image_num.toString() );
+  //left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 }
