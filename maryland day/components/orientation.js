@@ -28,16 +28,13 @@ function handleOrientation(event) {
   //ypos-=180
   //ypos += 90;
 
-  //var image_num = Math.floor((zpos/3)%7)+1;
-  
+  var image_num = Math.floor((zpos/3)%7)+1;
+  /*
    var image_num = Math.floor((zpos/3)%13)+1;
-   alert(image_num+"");
   if(image_num>7){
-    alert(image_num+"");
     image_num=14-image_num;
-    alert(image_num+"");
   }
-
+*/
   //ball.setAttribute('position', {x: 1.75, y: 1.25+image_num, z: -4});
         left.setAttribute('material', 'src', "#tex" + image_num.toString() );
         //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
