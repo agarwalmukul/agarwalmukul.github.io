@@ -2,7 +2,7 @@
 function orientation(){
 var left= document.querySelector('#left-eye');
 var right= document.querySelector('#right-eye');
-
+//boolean increase = false;
  
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
@@ -10,18 +10,40 @@ function handleOrientation(event) {
 
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
-  zpos-=180; //-180 to 180
+  zpos-=180;
   if(zpos<0){
-    zpos = 360 + zpos; //360-180 0-180
+    zpos = 360 + zpos;
   }
-
-  var image_num = Math.floor((zpos/3)%7)+1;
   /*
-   var image_num = Math.floor((zpos/3)%13)+1;
+  var temp = image_num;
+  var image_num = Math.floor((zpos/3)%7)+1;
+  if(image_num!=temp){
+    if(temp<image_num){
+      increase = true;
+    }
+    else{
+      increase=false;
+    }
+    if(temp==7 && image_num==1){
+      increase = false;
+    }
+    if(temp==1 && image_num==7){
+      increase = true;
+    }
+    if(increase){
+      image_num=temp++;
+    }
+    else{
+      image_num=temp--;
+    }
+  }
+  */
+  
+  var image_num = Math.floor((zpos/3)%13)+1;
   if(image_num>7){
     image_num=14-image_num;
   }
-*/
+
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
