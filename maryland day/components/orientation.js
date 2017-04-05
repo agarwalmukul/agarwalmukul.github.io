@@ -17,6 +17,12 @@ function handleOrientation(event) {
   var temp = image_num;
   var image_num = Math.floor((zpos/3)%7)+1;
   if(image_num!=temp){
+    if(temp<image_num){
+      increase = true;
+    }
+    else{
+      increase=false;
+    }
     if(temp==7 && image_num==1){
       increase = false;
     }
