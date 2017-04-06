@@ -66,6 +66,12 @@ window.addEventListener("orientationchange", function(){
 function applyOrientation() {
   if (window.innerHeight > window.innerWidth) {
    //alert("You are now in portrait");
+    var watermarkId = document.querySelector("#watermarkId");
+    var camera =  document.querySelector("#camera");
+    watermarkId.position = "-0.25 0.7 -1.1";
+    watermarkId.rotation = "0 0 0";
+    camera.rotation = "0 0 0";
+
   } else {
     //alert("You are now in landscape");
     setTimeout(function(){
@@ -74,6 +80,12 @@ function applyOrientation() {
             //orientationModal.parentNode.removeChild(orientationModal);
             orientationModal.className += " a-hidden";
         } 
+        var watermarkId = document.querySelector("#watermarkId");
+        var camera =  document.querySelector("#camera");
+        watermarkId.position = "0.25 0.5 -1.1";
+        watermarkId.rotation = "0 0 -90";
+        camera.rotation = "0 0 90";
+
       }, 0);
   }
 }
