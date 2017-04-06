@@ -30,6 +30,7 @@
 		    <img id="tex7" src="data/cropped_7.png">
 		    <img id="tex8" src="data/cropped_8.png">
 		    <img id="shadow" src="data/shadow.png">
+		    <img id="watermark" src="data/VR-Goggle-DoR-Logo-Red.png">
 
 		    <!<a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
     position="-3 1 -4">
@@ -49,11 +50,13 @@
 	  	</a-assets>
 
 	  	<a-camera position="0 0 0" stereocam="eye:left;">
+	  		<a-plane width="0.8" height="0.5" src="#watermark" material="transparent: true; side: double; opacity: 0.7" position="-1.05 0.5 -1.1" rotation="-0 0 0"></a-plane>	
+
           <a-cursor color="black"></a-cursor>
       </a-camera>
 
 	  	<a-entity cubemap="folder: data/mckeldin-mall/" position = "0 0 0"></a-entity>
-
+		
 		<a-plane width="0.3" height="0.8" src="#shadow" material="transparent: true; opacity: 0.7" position="0.05 0.75 -2.1" rotation="-70 0 90"></a-plane>
   		<a-entity id="left-eye" geometry="primitive: plane" width="8.25" height="15.5" material="src: #tex1; side: double; shader: flat; transparent: true; opacity: 1" position="0.25 1.25 -2" rotation="0 0 0" stereo="eye:left"></a-entity>
   		<!--
