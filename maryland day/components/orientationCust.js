@@ -1,8 +1,10 @@
 
-
 function orientationCust(){
-var left= document.querySelector('#left-eye');
-var right= document.querySelector('#right-eye');
+var left = document.querySelector('#left-eye');
+var right = document.querySelector('#right-eye');
+var leftBack = document.querySelector('#left-eye-back');
+var rightBack = document.querySelector('#right-eye-back');
+
 //var increase = false;
 
 function handleOrientation(event) {
@@ -25,8 +27,10 @@ function handleOrientation(event) {
   //}
 
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
+  leftBack.setAttribute('material', 'src', "#tex" + (image_num+1).toString());
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
+  rightBack.setAttribute('material', 'src', "#tex" + (image_num+2).toString());
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
