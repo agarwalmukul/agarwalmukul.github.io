@@ -29,13 +29,13 @@ function handleOrientation(event) {
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 }
 
-//window.addEventListener('deviceorientation', handleOrientation);
+window.addEventListener('deviceorientation', handleOrientation);
 }
 
-//window.addEventListener("orientationchange", function(){
- // applyOrientation();
-//}, false);
-/*
+window.addEventListener("orientationchange", function(){
+  applyOrientation();
+}, false);
+
 function applyOrientation() {
   if (window.innerHeight > window.innerWidth) {
    //alert("You are now in portrait");
@@ -62,4 +62,3 @@ function applyOrientation() {
       }, 0);
   }
 }
-*/
