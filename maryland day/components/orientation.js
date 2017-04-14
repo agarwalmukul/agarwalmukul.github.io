@@ -35,7 +35,7 @@ function handleOrientation(event) {
 //window.addEventListener("orientationchange", function(){
  // applyOrientation();
 //}, false);
-
+/*
 function applyOrientation() {
   if (window.innerHeight > window.innerWidth) {
    //alert("You are now in portrait");
@@ -62,3 +62,4 @@ function applyOrientation() {
       }, 0);
   }
 }
+*/
