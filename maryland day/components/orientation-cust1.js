@@ -51,7 +51,7 @@ function applyOrientation() {
        var orientationModal = document.querySelector(".a-orientation-modal");
         if(orientationModal!=null){
             //orientationModal.parentNode.removeChild(orientationModal);
-            orientationModal.className += " a-hidden";
+            //orientationModal.className += " a-hidden";
         } 
         var watermarkId = document.querySelector("#watermarkId");
         var camera =  document.querySelector("#camera");
