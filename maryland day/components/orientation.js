@@ -56,7 +56,7 @@ function handleOrientation(event) {
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 }
-window.addEventListener('deviceorientation', handleOrientation);
+//window.addEventListener('deviceorientation', handleOrientation);
 }
 
 window.addEventListener("orientationchange", function(){
