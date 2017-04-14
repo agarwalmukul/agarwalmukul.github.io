@@ -1,9 +1,10 @@
 
+/*
 function orientation(){
 var left= document.querySelector('#left-eye');
 var right= document.querySelector('#right-eye');
 //var increase = false;
-/*
+
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
