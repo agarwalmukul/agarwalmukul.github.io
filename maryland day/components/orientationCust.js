@@ -1,6 +1,6 @@
 
 
-function orientation-cust1(){
+function orientationCust(){
 var left= document.querySelector('#left-eye');
 var right= document.querySelector('#right-eye');
 //var increase = false;
