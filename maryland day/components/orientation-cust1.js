@@ -1,6 +1,6 @@
 
-/*
-function orientation(){
+
+function orientation-cust1(){
 var left= document.querySelector('#left-eye');
 var right= document.querySelector('#right-eye');
 //var increase = false;
@@ -29,7 +29,6 @@ function handleOrientation(event) {
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
 }
 
-*/
 //window.addEventListener('deviceorientation', handleOrientation);
 }
 
