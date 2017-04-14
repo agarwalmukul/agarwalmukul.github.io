@@ -59,9 +59,9 @@ function handleOrientation(event) {
 //window.addEventListener('deviceorientation', handleOrientation);
 }
 
-window.addEventListener("orientationchange", function(){
-  applyOrientation();
-}, false);
+//window.addEventListener("orientationchange", function(){
+ // applyOrientation();
+//}, false);
 
 function applyOrientation() {
   if (window.innerHeight > window.innerWidth) {
