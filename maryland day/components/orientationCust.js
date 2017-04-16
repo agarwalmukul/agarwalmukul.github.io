@@ -26,11 +26,17 @@ function handleOrientation(event) {
    // image_num=14-image_num;
   //}
 
-  var blendingRatio = (zpos/width)%1;
-  left.setAttribute('material',"opacity", ""+0.3+(blendingRatio)*1);
-  leftBack.setAttribute('material',"opacity", ""+0.3+(1-blendingRatio)*1);
-  right.setAttribute('material',"opacity", ""+0.3+(blendingRatio)*1);
-  rightBack.setAttribute('material',"opacity", ""+0.3+(1-blendingRatio)*1);
+  if(x==0){
+  var blendingRatio = (zpos/width)%1;}
+  else{var blendingRatio = 1- (zpos/width)%1;}
+  var blendingROne = 0.3+(1-blendingRatio)*1;
+  var blendingRTwo = 0.3+(blendingRatio)*1;
+  var blendingRThree = 0.3+(1-blendingRatio)*1;
+  var blendingRFour = 0.3+(blendingRatio)*1;
+  left.setAttribute('material',"opacity", ""+ blendingROne);
+  leftBack.setAttribute('material',"opacity", ""+ blendingRTwo);
+  right.setAttribute('material',"opacity", ""+ blendingRThree);
+  rightBack.setAttribute('material',"opacity", ""+ blendingRFour);
 
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   leftBack.setAttribute('material', 'src', "#tex" + (image_num+1).toString());
