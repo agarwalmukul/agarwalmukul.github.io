@@ -26,11 +26,19 @@ function handleOrientation(event) {
    // image_num=14-image_num;
   //}
 
+  var blendingRatio = (zpos/width)%1;
+  left.setAttribute("opacity", ""+(1-blendingRatio)*0.75);
+  leftBack.setAttribute("opacity", ""+(blendingRatio)*0.75);
+  right.setAttribute("opacity", ""+(1-blendingRatio)*0.75);
+  rightBack.setAttribute("opacity", ""+(blendingRatio)*0.75);
+
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   leftBack.setAttribute('material', 'src', "#tex" + (image_num+1).toString());
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
-  rightBack.setAttribute('material', 'src', "#tex" + (image_num+2).toString());
+  if(image_num==7){
+  rightBack.setAttribute('material', 'src', "#tex" + (6).toString());}
+  else{rightBack.setAttribute('material', 'src', "#tex" + (image_num+2).toString());}
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
