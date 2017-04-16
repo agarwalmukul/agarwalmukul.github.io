@@ -27,10 +27,10 @@ function handleOrientation(event) {
   //}
 
   var blendingRatio = (zpos/width)%1;
-  left.setAttribute("opacity", ""+(1-blendingRatio)*0.75);
-  leftBack.setAttribute("opacity", ""+(blendingRatio)*0.75);
-  right.setAttribute("opacity", ""+(1-blendingRatio)*0.75);
-  rightBack.setAttribute("opacity", ""+(blendingRatio)*0.75);
+  left.setAttribute('material',"opacity", ""+(1-blendingRatio)*0.75);
+  leftBack.setAttribute('material',"opacity", ""+(blendingRatio)*0.75);
+  right.setAttribute('material',"opacity", ""+(1-blendingRatio)*0.75);
+  rightBack.setAttribute('material',"opacity", ""+(blendingRatio)*0.75);
 
   left.setAttribute('material', 'src', "#tex" + image_num.toString() );
   leftBack.setAttribute('material', 'src', "#tex" + (image_num+1).toString());
