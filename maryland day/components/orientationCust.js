@@ -28,7 +28,7 @@ function handleOrientation(event) {
   //if(image_num>7){
    // image_num=14-image_num;
   //}
-/*
+
   if(x==0){
   var blendingRatio = (zpos/width)%1;}
   else{var blendingRatio = 1- (zpos/width)%1;}
@@ -49,7 +49,7 @@ function handleOrientation(event) {
   rightBack.setAttribute('material', 'src', "#tex" + (6).toString());}
   else{rightBack.setAttribute('material', 'src', "#tex" + (image_num+2).toString());}
 }
-*/
+
 window.addEventListener('deviceorientation', handleOrientation);
 }
 
