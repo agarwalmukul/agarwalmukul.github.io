@@ -4,6 +4,9 @@ var left = document.querySelector('#left-eye');
 var right = document.querySelector('#right-eye');
 var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
+var loading = document.querySelector('#loading');
+
+loading.parentNode.removeChild(loading);
 
 //var increase = false;
 
