@@ -16,7 +16,7 @@ function handleOrientation(event) {
   var numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
-  var width = 360/(4*numImages*numImages);
+  var width = 360/(4*numImages*numImages*2);
   var x=Math.floor((zpos/width)/numImages);
   var x = x % 2;
   if(x==0){
