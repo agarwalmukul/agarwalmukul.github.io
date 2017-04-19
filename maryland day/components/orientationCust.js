@@ -13,7 +13,7 @@ loading.parentNode.removeChild(loading);
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
-  int numImages = 5;
+  var numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
   var width = 360/(4*numImages*numImages);
