@@ -13,16 +13,16 @@ loading.parentNode.removeChild(loading);
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
-
+  int numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
-  var width = 360/(28*7);
-  var x=Math.floor((zpos/width)/7);
+  var width = 360/(4*numImages*numImages);
+  var x=Math.floor((zpos/width)/numImages);
   var x = x % 2;
   if(x==0){
-    pos = (Math.floor(zpos/width))%7;}
+    pos = (Math.floor(zpos/width))%numImages;}
   else{
-    pos = 6 - (Math.floor(zpos/width))%7;}
+    pos = numImages-1 - (Math.floor(zpos/width))%numImages;}
   image_num = pos+1;
   //var image_num = Math.floor((zpos/3)%13)+1;//1-13
   //if(image_num>7){
@@ -46,8 +46,8 @@ function handleOrientation(event) {
   leftBack.setAttribute('material', 'src', "#tex" + (image_num+1).toString());
   //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
   right.setAttribute('material', 'src', "#tex" + (image_num+1).toString() );
-  if(image_num==7){
-  rightBack.setAttribute('material', 'src', "#tex" + (6).toString());}
+  if(image_num==numImages){
+  rightBack.setAttribute('material', 'src', "#tex" + (numImages-1).toString());}
   else{rightBack.setAttribute('material', 'src', "#tex" + (image_num+2).toString());}
 }
 
