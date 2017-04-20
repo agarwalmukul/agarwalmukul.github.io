@@ -4,9 +4,9 @@ var left = document.querySelector('#left-eye');
 var right = document.querySelector('#right-eye');
 var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
-var loading = document.querySelector('#loading');
+//var loading = document.querySelector('#loading');
 
-loading.parentNode.removeChild(loading);
+//loading.parentNode.removeChild(loading);
 
 //var increase = false;
 
@@ -16,7 +16,7 @@ function handleOrientation(event) {
   var numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
-  var width = 360/(4*numImages*numImages*2);
+  var width = 360/(4*numImages*numImages);
   var x=Math.floor((zpos/width)/numImages);
   var x = x % 2;
   if(x==0){

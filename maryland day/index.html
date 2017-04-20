@@ -15,10 +15,10 @@
   	<div style="position:relative;">
 	  	<img id="loading" src="data/VR-Goggle-DoR-Logo-Red.png" alt="University of Maryland Research Logo" 
 	  		style="position:absolute;
-	  				left:30%;
-	  				top:40%;
-	  				z-index:-100;
-	  				width:40%">
+	  				bottom: 5%;
+	  				right: 5%;
+	  				z-index: 2;
+	  				width: 10%">
 	    <a-scene>
 			<a-assets>
 			    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
@@ -67,8 +67,9 @@
 	  		<a-entity id="right-eye-back" geometry="primitive: plane" width="8.25" height="15.5" material="src: #tex3; side: double; shader: flat; transparent: true; opacity: 0.75" position="0.25 1.25 -2" rotation="0 0 0" stereo="eye:right"></a-entity>
 	  	
 	  		<a-camera look-controls id="camera" position="0 0 0" rotation = "0 0 0" stereocam="eye:left;">
-		  		<a-plane id="watermarkId" width="0.4" height="0.18" src="#watermark" material="transparent: true; side: double; opacity: 0.7" position="0.25 -0.7 -1.1" rotation="0 0 0"></a-plane>
-	        	<a-cursor color="black"></a-cursor>
+		  		<!--
+		  		<a-plane id="watermarkId" width="0.4" height="0.4" src="#watermark" material="transparent: true; side: double; opacity: 0.7" position="0.25 -0.7 -1.1" rotation="0 0 0"></a-plane>
+		  	-->
 	      	</a-camera>
 
 			<!--
