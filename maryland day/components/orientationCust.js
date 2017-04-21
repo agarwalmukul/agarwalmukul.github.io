@@ -11,10 +11,10 @@ var rightBack = document.querySelector('#right-eye-back');
 //vrbutton.parentNode.removeChild(loading);
 
 var vrbutton = document.querySelector(".a-enter-vr");
-if(orientationModal!=null){
+//if(orientationModal!=null){
     //orientationModal.parentNode.removeChild(orientationModal);
     //orientationModal.className += " a-hidden";
-} 
+//} 
 
 //var increase = false;
 
