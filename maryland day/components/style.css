@@ -1,0 +1,28 @@
+#container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#container a-scene, #overlay {
+  position: absolute;
+}
+
+#overlay{
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}
+/*
+#loading{
+	position:relative;
+	bottom: 5%;
+	right: 5%;
+	z-index: 2;
+	width: 20%
+}
+
+a-scene{
+	display: block; 
+	height: 50%;
+}
