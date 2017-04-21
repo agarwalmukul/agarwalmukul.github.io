@@ -6,7 +6,8 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
 	<script src="components/aframe-stereo-component-master/dist/aframe-stereo-component.js"></script>
-	<script src="https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.min.js"></script>
+	<script src="components/aframe-cubemap-component.js"></script>
+	
 	<script src="components/orientationCust.js"></script>
 	
   </head>
@@ -26,7 +27,7 @@
 			    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
 			    <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
 			    <img id="transparentLayer" crossorigin="anonymous" src="data/transparentLayerForTrigger.png">
-			    
+			    <img id="skybox" src="data/McKeldinMall.jpg">
 			    <img id="tex1" src="data/output_webgl_1.png">
 			    <img id="tex2" src="data/output_webgl_2.png">
 			    <img id="tex3" src="data/output_webgl_3.png">
@@ -56,7 +57,8 @@
 		        -->
 		  	</a-assets>
 
-		  	<a-entity cubemap="folder: data/mckeldin-mall/" position = "0 0 0"></a-entity>		
+		  	<!--<a-entity cubemap="folder: data/mckeldin-mall/" position = "0 0 0" rotation="90 0 0"></a-entity>		-->
+		  	<a-sky src="#skybox" rotation="0 -90 0"></a-sky>
 	  		
 	  		<a-entity id="left-eye" geometry="primitive: plane" width="8.25" height="15.5" material="src: #tex1; side: double; shader: flat; transparent: true; opacity: 0.75" position="0.25 1.25 -2" rotation="0 0 0" stereo="eye:left"></a-entity>
 
@@ -66,7 +68,7 @@
 
 	  		<a-entity id="right-eye-back" geometry="primitive: plane" width="8.25" height="15.5" material="src: #tex3; side: double; shader: flat; transparent: true; opacity: 0.75" position="0.25 1.25 -2" rotation="0 0 0" stereo="eye:right"></a-entity>
 	  	
-	  		<a-camera look-controls id="camera" position="0 0 0" rotation = "0 0 0" stereocam="eye:left;">
+	  		<a-camera zoom="1" look-controls id="camera" position="0 0 0" rotation = "0 0 0" stereocam="eye:left;">
 		  		<!--
 		  		<a-plane id="watermarkId" width="0.4" height="0.4" src="#watermark" material="transparent: true; side: double; opacity: 0.7" position="0.25 -0.7 -1.1" rotation="0 0 0"></a-plane>
 		  	-->

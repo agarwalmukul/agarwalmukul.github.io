@@ -5,8 +5,16 @@ var right = document.querySelector('#right-eye');
 var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
 //var loading = document.querySelector('#loading');
-
 //loading.parentNode.removeChild(loading);
+
+//var vrbutton = document.querySelector('.a-enter-vr');
+//vrbutton.parentNode.removeChild(loading);
+
+var vrbutton = document.querySelector(".a-enter-vr");
+if(orientationModal!=null){
+    //orientationModal.parentNode.removeChild(orientationModal);
+    //orientationModal.className += " a-hidden";
+} 
 
 //var increase = false;
 
