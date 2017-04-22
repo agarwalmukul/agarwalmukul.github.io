@@ -10,22 +10,6 @@ var rightBack = document.querySelector('#right-eye-back');
 //var vrbutton = document.querySelector('.a-enter-vr');
 //vrbutton.parentNode.removeChild(loading);
 
-var myElement = document.getElementById('myElement');
-var mc = new Hammer.Manager(myElement);
-// create a pinch and rotate recognizer
-// these require 2 pointers
-var pinch = new Hammer.Pinch();
-//var rotate = new Hammer.Rotate();
-// we want to detect both the same time
-//pinch.recognizeWith(rotate);
-// add to the Manager
-mc.add([pinch]);
-mc.on("pinch", function(ev) {
-    //myElement.textContent += ev.type +" ";
-    console.log("pinch");
-});
-
-
 var vrbutton = document.querySelector(".a-enter-vr");
 //if(orientationModal!=null){
     //orientationModal.parentNode.removeChild(orientationModal);
@@ -112,15 +96,3 @@ function applyOrientation() {
       }, 0);
   }
 }
-
-
-
-/*
-window.addEventListener('touchstart', function onFirstTouch() {
-  // we could use a class
-  document.body.classList.add('user-is-touching');
-
-  // we only need to know once that a human touched the screen, so we can stop listening now
-  window.removeEventListener('touchstart', onFirstTouch, false);
-}, false);
-*/
