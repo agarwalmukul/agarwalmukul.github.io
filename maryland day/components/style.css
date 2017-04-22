@@ -14,6 +14,10 @@ a-scene{
   	width: 100%;
 }
 
+body{
+	margin :0 0 0 0;
+}
+
 #overlay{
 	height: 50%;
 	width: 50%;

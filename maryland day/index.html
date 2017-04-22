@@ -9,7 +9,8 @@
 	<script src="components/aframe-cubemap-component.js"></script>
 	<script src="components/orientationCust.js"></script>
 	<link rel="stylesheet" href="components/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+	<script src="components/hammer.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.2, maximum-scale=3.0, minimum-scale=1.0">
 	
   </head>
 
@@ -18,7 +19,7 @@
 	  	<img id="logo" src="data/VR-Goggle-DoR-Logo-Red.png" alt="University of Maryland Research Logo">
 	  	<!--<div id="loading">the bits are flowing slowly today</div>
 	  -->
-	    <a-scene embedded>
+	    <a-scene embedded id="myElement">
 			<a-assets>
 			    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
 			    <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
@@ -79,7 +80,7 @@
 	      	</a-camera>
 			-->
 		</a-scene>
-		<div id="overlay"></div>
+		<!<div id="overlay"></div>
 	</div>
   <body>
 </html>
