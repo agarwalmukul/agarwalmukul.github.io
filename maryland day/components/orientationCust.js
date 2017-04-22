@@ -39,12 +39,14 @@ function handleOrientation(event) {
 
   if(x==0){
   var blendingRatio = (zpos/width)%1;}
-  else{var blendingRatio = 1- (zpos/width)%1;}
+  else{
+    var blendingRatio = 1-(zpos/width)%1;
+  }
 
-  var blendingROne = 0.4+(1-blendingRatio)*0.5999;
-  var blendingRTwo = 0.4+(blendingRatio)*0.5999;
-  var blendingRThree = 0.4+(1-blendingRatio)*0.5999;
-  var blendingRFour = 0.4+(blendingRatio)*0.5999;
+  var blendingROne = 0.2+(1-blendingRatio)*0.7999;
+  var blendingRTwo = 0.2+(blendingRatio)*0.7999;
+  var blendingRThree = 0.2+(1-blendingRatio)*0.7999;
+  var blendingRFour = 0.2+(blendingRatio)*0.7999;
   left.setAttribute('material',"opacity", ""+ blendingROne);
   leftBack.setAttribute('material',"opacity", ""+ blendingRTwo);
   right.setAttribute('material',"opacity", ""+ blendingRThree);
