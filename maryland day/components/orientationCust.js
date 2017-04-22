@@ -4,6 +4,8 @@ var left = document.querySelector('#left-eye');
 var right = document.querySelector('#right-eye');
 var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
+
+var skybox = document.querySelector('a-sky');
 //var loading = document.querySelector('#loading');
 //loading.parentNode.removeChild(loading);
 
@@ -21,6 +23,16 @@ var vrbutton = document.querySelector(".a-enter-vr");
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
+  if(zpos<30 || zpos>330){
+    var rot = zpos;
+    if(zpos<30){
+      rot = -90+zpos;
+    }
+    else if (zpos >330){
+      rot = 330-zpos -90;
+    }
+    skybox.setAttribute('rotation', "0 "+ rot + " 0");
+  }
   var numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
