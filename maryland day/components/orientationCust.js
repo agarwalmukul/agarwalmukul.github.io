@@ -23,6 +23,7 @@ var vrbutton = document.querySelector(".a-enter-vr");
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
+ /*
   if(zpos<30 || zpos>330){
     var rot = zpos;
     if(zpos<30){
@@ -33,6 +34,7 @@ function handleOrientation(event) {
     }
     skybox.setAttribute('rotation', "0 "+ rot + " 0");
   }
+  */
   var numImages = 5;
   xpos += 180;
   //changed the front view point in the scene from 0, 360 discontinuity to continuous
