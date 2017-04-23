@@ -40,6 +40,9 @@ function handleOrientation(event) {
       camera.setAttribute("look-controls", "enabled", "false");
       //skybox.setAttribute("phi-start", "-" + zpos);
       //cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
+      if(abs(ypos)>15){
+        camera.setAttribute("look-controls", "enabled", "true");
+      }
     }
     else{
       camera.setAttribute("look-controls", "enabled", "true");
