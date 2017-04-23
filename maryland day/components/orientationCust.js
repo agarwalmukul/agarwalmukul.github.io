@@ -34,7 +34,9 @@ function handleOrientation(event) {
   var zpos = event.alpha; // In degree in the range [0,360]
 
   if(zpos!=null){
-    if(zpos<30 || zpos>330){
+    var diffz = startingOrientation[2]-zpos;
+    if(Math.abs(diffz)<30){
+    //if(zpos<30 || zpos>330){
       camera.setAttribute("look-controls", "enabled", "false");
       //skybox.setAttribute("phi-start", "-" + zpos);
       //cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
