@@ -28,7 +28,7 @@ function handleOrientation(event) {
   if(zpos!=null){
     if(zpos<30 || zpos>330){
       //skybox.setAttribute("phi-start", "-" + zpos);
-      cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
+      //cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
     }
   }
  /*
