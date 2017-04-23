@@ -66,15 +66,13 @@
 
 	  		<a-entity id="right-eye-back" geometry="primitive: plane" width="8.25" height="15.5" material="src: #tex3; side: double; shader: flat; transparent: true; opacity: 0.75" position="0.25 1.25 -2" rotation="0 0 0" stereo="eye:right"></a-entity>
 	  		<a-sky src="#skybox" phi-start="0" rotation="0 -100 0" stereo="eye:left"></a-sky>
-
-	  		<a-camera zoom="1" look-controls id="camera" position="0 0 0" rotation = "0 0 0" stereocam="eye:left;">
-
-	  			
-
+	  		<a-entity id="cameraParent" position= "0 0 0" rotation= "0 0 0">
+	  			<a-camera zoom="1" look-controls id="camera" stereocam="eye:left;">
 		  		<!--
 		  		<a-plane id="watermarkId" width="0.4" height="0.4" src="#watermark" material="transparent: true; side: double; opacity: 0.7" position="0.25 -0.7 -1.1" rotation="0 0 0"></a-plane>
-		  	-->
-	      	</a-camera>
+			  	-->
+		      	</a-camera>
+		    </a-entity>
 
 			<!--
 	      	<a-camera position="0 0 0" rotation = "0 0 90" stereocam="eye:left;">

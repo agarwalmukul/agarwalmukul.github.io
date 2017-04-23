@@ -6,6 +6,7 @@ var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
 
 var skybox = document.querySelector('a-sky');
+var cameraParent = document.querySelector('#cameraParent');
 //var loading = document.querySelector('#loading');
 //loading.parentNode.removeChild(loading);
 
@@ -26,7 +27,8 @@ function handleOrientation(event) {
   var ypos = event.gamma; // In degree in the range [0,360]
   if(zpos!=null){
     if(zpos<30 || zpos>330){
-      skybox.setAttribute("phi-start", "-" + zpos);
+      //skybox.setAttribute("phi-start", "-" + zpos);
+      cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
     }
   }
  /*
