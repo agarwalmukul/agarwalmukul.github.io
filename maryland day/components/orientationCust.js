@@ -37,10 +37,10 @@ function handleOrientation(event) {
     var diffz = startingOrientation[2]-zpos;
     var diffy = startingOrientation[1]-ypos;
     //if(Math.abs(diffz)<30 && abs(xpos)>30 )
-    if(Math.abs(diffz)<20){
+    if(Math.abs(diffz)<30){
     //if(zpos<30 || zpos>330){
       //if user rotates the device instead of moving it then the camera should move as well
-      if(abs(diffy)<15){
+      if(abs(ypos)<30){
       camera.setAttribute("look-controls", "enabled", "false");}
       else{
         camera.setAttribute("look-controls", "enabled", "true");
