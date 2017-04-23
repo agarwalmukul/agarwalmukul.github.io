@@ -29,11 +29,32 @@ function handleOrientation(event) {
     var rot = zpos;
     if(zpos<30){
       rot = -90+zpos;
+      if(document.querySelector("#staticSkybox")!=null){}
+      else{
+        var skyOne = document.createElement("a-sky");
+        skyOne.setAttribute('src', "#skybox");
+        skyOne.setAttribute('rotation', "0 -100 0");
+        skyOne.setAttribute('id', "staticSkybox");
+        document.querySelector('a-camera').appendChild(skyOne);
+        skybox.parentNode.removeChild(skybox);
+      }
+
     }
     else if (zpos >330){
       rot = 330-zpos -90;
     }
-    skybox.setAttribute('rotation', "0 "+ rot + " 0");
+    //skybox.setAttribute('rotation', "0 "+ rot + " 0");
+  }
+  else{
+    if(document.querySelector("#staticSkybox")!=null){
+        var skyBoxView = document.createElement("a-sky");
+        skyBoxView.setAttribute('src', "#skybox");
+        skyBoxView.setAttribute('rotation', "0 -100 0");
+        document.querySelector('a-scene').appendChild(skyBoxView);
+        var skyOne = document.querySelector("#staticSkybox")
+        skyOne.parentNode.removeChild(skyOne);
+        
+    }
   }
   
   var numImages = 5;
