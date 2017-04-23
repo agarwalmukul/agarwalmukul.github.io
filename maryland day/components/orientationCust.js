@@ -6,7 +6,8 @@ var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
 
 var skybox = document.querySelector('a-sky');
-var cameraParent = document.querySelector('#cameraParent');
+//var cameraParent = document.querySelector('#cameraParent');
+var camera = document.querySelector('a-camera');
 //var loading = document.querySelector('#loading');
 //loading.parentNode.removeChild(loading);
 
@@ -20,15 +21,26 @@ var vrbutton = document.querySelector(".a-enter-vr");
 //} 
 
 //var increase = false;
-
+var startingOrientation = [1000,1000,1000];//initialized with a value that cannot be returned by the device orientation events
 function handleOrientation(event) {
+  //this assigns the starting position at the start of the device orientation
+  if(startingOrientation[0]==1000 && event.beta!=null){
+    startingOrientation[0]= event.beta;
+    startingOrientation[1]= event.gamma;
+    startingOrientation[2]= event.alpha;
+  }
   var xpos = event.beta;  // In degree in the range [-180,180]
-  var zpos = event.alpha; // In degree in the range [0,360]
   var ypos = event.gamma; // In degree in the range [0,360]
+  var zpos = event.alpha; // In degree in the range [0,360]
+
   if(zpos!=null){
     if(zpos<30 || zpos>330){
+      camera.setAttribute("look-controls", "enabled", "false");
       //skybox.setAttribute("phi-start", "-" + zpos);
       //cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
+    }
+    else{
+      camera.setAttribute("look-controls", "enabled", "true");
     }
   }
  /*
