@@ -24,7 +24,13 @@ function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var zpos = event.alpha; // In degree in the range [0,360]
   var ypos = event.gamma; // In degree in the range [0,360]
+  if(zpos!=null){
+    if(zpos<30 || zpos>330){
+      skybox.setAttribute("phi-start", "-" + zpos);
+    }
+  }
  /*
+
   if(zpos<30 || zpos>330){
     var rot = zpos;
     if(zpos<30){
