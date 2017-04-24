@@ -14,7 +14,7 @@ var camera = document.querySelector('a-camera');
 //var vrbutton = document.querySelector('.a-enter-vr');
 //vrbutton.parentNode.removeChild(loading);
 
-var vrbutton = document.querySelector(".a-enter-vr");
+var vrbutton = document.querySelector(".a-enter-vr-button");
 //if(orientationModal!=null){
     //orientationModal.parentNode.removeChild(orientationModal);
     //orientationModal.className += " a-hidden";
