@@ -12,11 +12,12 @@
 	<link rel="stylesheet" href="components/style.css">
   </head>
 
-<body>
+<body onload="orientationCust()">
   	<div id="container">
-	  	<img id="logo" src="data/logo.png" alt="University of Maryland Research Logo">
+	  	<!-<img id="logo" src="data/logo.png" alt="University of Maryland Research Logo">
 	    <a-scene embedded>
 			<a-assets>
+				<img id="logo" src="data/logo.png">
 			    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
 			    <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
 			    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
@@ -31,7 +32,8 @@
 		  	<a-sky src="#skybox" phi-start="-135" rotation="0 0 0"></a-sky>
 
 		  	<a-camera look-controls id="camera">
-		      	</a-camera>
+		  		<a-plane id="stereoLogo" width="0.1" height="0.1" src="#logo" material="transparent: true; opacity: 1" position="-0.1 -0.1 -0.25"></a-plane>	
+		    </a-camera>
 		</a-scene>
 	</div>
   <body>
