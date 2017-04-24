@@ -29,6 +29,7 @@ AFRAME.registerComponent('set-image', {
     el.addEventListener("mouseleave", function () {
       camera.setAttribute("look-controls", "enabled", "true");
       cursor.setAttribute("look-controls", "enabled", "false");
+      cursor.setAttribute("rotation", "0 0 0");
     });
 
 
