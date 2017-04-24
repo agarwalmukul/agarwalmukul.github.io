@@ -4,7 +4,7 @@ var left = document.querySelector('#left-eye');
 var right = document.querySelector('#right-eye');
 var leftBack = document.querySelector('#left-eye-back');
 var rightBack = document.querySelector('#right-eye-back');
-
+var enteredVR = false;
 var skybox = document.querySelector('a-sky');
 //var cameraParent = document.querySelector('#cameraParent');
 var camera = document.querySelector('a-camera');
@@ -48,11 +48,13 @@ function handleOrientation(event) {
       camera.setAttribute("look-controls", "enabled", "true");
     }
 
-    if(Math.abs(xpos)<10 && Math.abs(ypos)>80 ){
+    if(Math.abs(xpos)<10 && Math.abs(ypos)>80 && !enteredVR){
       document.querySelector('a-scene').enterVR();
+      enteredVR = true;
     }
     else{
       document.querySelector('a-scene').exitVR();
+      enteredVR = false;
     }
     
 
