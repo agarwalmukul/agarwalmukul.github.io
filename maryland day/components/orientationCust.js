@@ -32,7 +32,7 @@ function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var ypos = event.gamma; // In degree in the range [0,360]
   var zpos = event.alpha; // In degree in the range [0,360]
-
+  /*
   if(zpos!=null){
     var diffz = startingOrientation[2]-zpos;
     if(Math.abs(diffz)<20){
@@ -47,8 +47,8 @@ function handleOrientation(event) {
     else{
       camera.setAttribute("look-controls", "enabled", "true");
     }
+*/
 
-    
     /*
     if(Math.abs(xpos)<10 && Math.abs(ypos)>80){
       if(!enteredVR){
@@ -61,9 +61,10 @@ function handleOrientation(event) {
       //document.querySelector('a-scene').exitVR();
       enteredVR = false;
     }
+    }
     */
 
-  }
+  
  /*
 
   if(zpos<30 || zpos>330){

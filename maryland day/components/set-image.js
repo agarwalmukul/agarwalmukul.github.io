@@ -6,14 +6,12 @@
  */
 
 
-//registerAframeVideoBillboard(window.AFRAME);
-
 AFRAME.registerComponent('set-image', {
   schema: {
     on: {type: 'string'},
     target: {type: 'selector'},
     src: {type: 'string'},
-    dur: {type: 'number', default: 0}
+    dur: {type: 'number', default: 300}
   },
 
   init: function () {
@@ -21,25 +19,28 @@ AFRAME.registerComponent('set-image', {
     var el = this.el;
 
     this.setupFadeAnimation();
+    var camera = document.querySelector('a-camera');
+    el.addEventListener("mouseenter", function () {
+      
+      camera.setAttribute("look-controls", "enabled", "false");
 
-    el.addEventListener(data.on, function () {
-      // Fade out image.
-      //data.target.emit('set-image-fade');
-      // Wait for fade to complete.
-      setTimeout(function () {
-        // Set image.
-        data.target.setAttribute('material', 'src', "#tex" + data.src);
-        //document.querySelector("#right-eye").setAttribute('material', 'src', 'tex'+eval(data.src.charAt(3)+'+ 1')  )
-        document.querySelector("#right-eye").setAttribute('material', 'src', "#tex" + eval(data.src + "+1")  );
-      }, data.dur);
     });
+
+    el.addEventListener("mouseleave", function () {
+      
+      camera.setAttribute("look-controls", "enabled", "true");
+    });
+
+
+
   },
 
   /**
    * Setup fade-in + fade-out.
    */
+   
   setupFadeAnimation: function () {
-  /**
+    /*
     var data = this.data;
     var targetEl = this.data.target;
 
@@ -55,9 +56,8 @@ AFRAME.registerComponent('set-image', {
       dur: data.dur,
       from: '#FFF',
       to: '#000'
-    }
-    );
-*/
+    });
+    */
   }
   
 });
