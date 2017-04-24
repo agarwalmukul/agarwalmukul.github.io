@@ -44,11 +44,8 @@
 				<!-- Image link template to be reused. -->
 		        <script id="link" type="text/html">
 		          <a-entity class="link"
-		            geometry="primitive: plane; height: 6; width: 2.6"
-		            material="shader: flat; src: ${thumb}; "
-		            
-		            
-		            
+		            geometry="primitive: plane; height: 6; width: 3"
+		            material="shader: flat; src: ${thumb}; transparent: true; opacity: 0"
 		            set-image="on: click; target: #image-360; src: ${src}"
 		            >
 		        </a-entity>
@@ -76,7 +73,7 @@
 	  		<a-entity id="cameraParent" position= "0 0 0" rotation= "0 0 0">
 	  			<a-camera zoom="1" look-controls="enabled:false" id="camera" stereocam="eye:left;">
 	  			<a-cursor id="cursor" look-controls="enabled:true"
-		          material= "opacity:1"
+		          material= "opacity:0"
 		          fuse="true"
 		          raycaster="objects: .link"></a-cursor>
 		      	</a-camera>
