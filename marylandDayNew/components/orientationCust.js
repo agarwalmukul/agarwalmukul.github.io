@@ -12,7 +12,7 @@ function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var ypos = event.gamma; // In degree in the range [0,360]
   var zpos = event.alpha; // In degree in the range [0,360]
-  if(Math.abs(xpos)<10 && Math.abs(ypos)>80){
+  if(Math.abs(xpos)<10 || Math.abs(xpos)>170){
       if(!enteredVR){
         //document.querySelector('a-scene').enterVR();
         stereoLogo.setAttribute('material',"opacity","1");
@@ -20,7 +20,7 @@ function handleOrientation(event) {
         enteredVR = true;
       }
     }
-  else{
+  else if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
     if(enteredVR==true){
       stereoLogo.setAttribute('material',"opacity","0");
       document.querySelector('a-scene').exitVR();
