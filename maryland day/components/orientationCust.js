@@ -32,7 +32,7 @@ function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var ypos = event.gamma; // In degree in the range [0,360]
   var zpos = event.alpha; // In degree in the range [0,360]
-  /*
+  
   if(zpos!=null){
     var diffz = startingOrientation[2]-zpos;
     if(Math.abs(diffz)<20){
@@ -41,14 +41,14 @@ function handleOrientation(event) {
       //skybox.setAttribute("phi-start", "-" + zpos);
       //cameraParent.setAttribute('rotation', "0 " + -1*zpos + " 0");
       if(Math.abs(ypos)>15){
-        camera.setAttribute("look-controls", "enabled", "true");
+        //camera.setAttribute("look-controls", "enabled", "true");
       }
     }
     else{
       camera.setAttribute("look-controls", "enabled", "true");
     }
-*/
 
+}
     /*
     if(Math.abs(xpos)<10 && Math.abs(ypos)>80){
       if(!enteredVR){
