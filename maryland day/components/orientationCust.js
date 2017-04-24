@@ -50,7 +50,8 @@ function handleOrientation(event) {
 
     if(Math.abs(xpos)<10 && Math.abs(ypos)>80){
       if(!enteredVR){
-        document.querySelector('a-scene').enterVR();
+        //document.querySelector('a-scene').enterVR();
+        vrbutton.click();
         enteredVR = true;
       }
     }
