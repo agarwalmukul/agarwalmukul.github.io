@@ -48,9 +48,11 @@ function handleOrientation(event) {
       camera.setAttribute("look-controls", "enabled", "true");
     }
 
-    if(Math.abs(xpos)<10 && Math.abs(ypos)>80 && !enteredVR){
-      document.querySelector('a-scene').enterVR();
-      enteredVR = true;
+    if(Math.abs(xpos)<10 && Math.abs(ypos)>80){
+      if(!enteredVR){
+        document.querySelector('a-scene').enterVR();
+        enteredVR = true;
+      }
     }
     else{
       document.querySelector('a-scene').exitVR();
