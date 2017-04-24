@@ -1,5 +1,6 @@
 function orientationCust(){
 var stereoLogo = document.querySelector('#stereoLogo');
+var logo = document.querySelector('#logo');
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
 stereoLogo.setAttribute('width'," "+width/10000);
@@ -16,6 +17,7 @@ function handleOrientation(event) {
       if(!enteredVR){
         //document.querySelector('a-scene').enterVR();
         stereoLogo.setAttribute('material',"opacity","1");
+        logo.setAttribute('material',"opacity","0");
         //vrbutton.click();
         enteredVR = true;
       }
@@ -23,6 +25,7 @@ function handleOrientation(event) {
   else if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
     if(enteredVR==true){
       stereoLogo.setAttribute('material',"opacity","0");
+      logo.setAttribute('material',"opacity","1");
       document.querySelector('a-scene').exitVR();
       enteredVR = false;
     }
