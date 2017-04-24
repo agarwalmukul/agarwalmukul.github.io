@@ -17,7 +17,7 @@ function handleOrientation(event) {
       if(!enteredVR){
         //document.querySelector('a-scene').enterVR();
         stereoLogo.setAttribute('material',"opacity","1");
-        logo.setAttribute('material',"opacity","0");
+        logo.setAttribute('style',"opacity","0");
         //vrbutton.click();
         enteredVR = true;
       }
@@ -25,7 +25,7 @@ function handleOrientation(event) {
   else if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
     if(enteredVR==true){
       stereoLogo.setAttribute('material',"opacity","0");
-      logo.setAttribute('material',"opacity","1");
+      logo.setAttribute('style',"opacity","1");
       document.querySelector('a-scene').exitVR();
       enteredVR = false;
     }
