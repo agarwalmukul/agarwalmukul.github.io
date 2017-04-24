@@ -20,15 +20,15 @@ AFRAME.registerComponent('set-image', {
 
     this.setupFadeAnimation();
     var camera = document.querySelector('a-camera');
+    var cursor = document.querySelector('#cursor');
     el.addEventListener("mouseenter", function () {
-      
       camera.setAttribute("look-controls", "enabled", "false");
-
+      cursor.setAttribute("look-controls", "enabled", "true");
     });
 
     el.addEventListener("mouseleave", function () {
-      
       camera.setAttribute("look-controls", "enabled", "true");
+      cursor.setAttribute("look-controls", "enabled", "false");
     });
 
 
