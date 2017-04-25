@@ -63,8 +63,10 @@ function handleOrientation(event) {
     var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
     //document.querySelector('.a-canvas').style.width = widthcanvas;
     if(widthScreen==document.querySelector('.a-canvas').style.width){
-      document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
-      document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
+      setTimeout(function(){ 
+        document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
+        document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
+      }, 300);
     }
   }
   // to automatically exit vr mode on portrait mode - for android
