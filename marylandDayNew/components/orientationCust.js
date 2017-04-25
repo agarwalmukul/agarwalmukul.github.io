@@ -14,25 +14,11 @@ logo.style.left = minLength/100 + "px";
 logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
-}
 function doOnOrientationChange() {
     switch(window.orientation) {  
       case -90 || 90:
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
-        //document.querySelector('canvas').width = 500;//setAttribute('material',"opacity","0");
-       
-        if(enteredVR){
-        setTimeout(function(){ 
-          //alert("Hello");
-          var ppi = getPPI();
-          var widthScreen = document.documentElement.clientWidth;
-          var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width)/2;
-          document.querySelector('.a-canvas').style.width = widthcanvas;
-        }, 300);
-      }
-        //var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width)/2;
-        //document.querySelector('canvas').style.width = widthcanvas/2;
         break;
       // to automatically exit vr mode on portrait mode - for iOS
       default:
@@ -62,17 +48,6 @@ function handleOrientation(event) {
         //enteredVR = true;
         isLandscapeVRModeFirst = true;
       }
-      if(enteredVR){
-        setTimeout(function(){ 
-          //alert("Hello");
-          //var ppi = getPPI();
-          //var widthScreen = document.documentElement.clientWidth;
-          var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
-
-          document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
-          document.querySelector('.a-canvas').style.right = widthcanvas * (-0.07/2);
-
-        }, 300);
     }
   // to automatically exit vr mode on portrait mode - for android
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
@@ -105,23 +80,9 @@ document.querySelector('a-scene').addEventListener('exit-vr', function () {
 });
 window.addEventListener('deviceorientation', handleOrientation);
 
-
-
-function getPPI(){
- // create an empty element
- var div = document.createElement("div");
- // give it an absolute size of one inch
- div.style.width="1in";
- // append it to the body
- var body = document.getElementsByTagName("body")[0];
- body.appendChild(div);
- // read the computed width
- var ppi = document.defaultView.getComputedStyle(div, null).getPropertyValue('width');
- // remove it again
- body.removeChild(div);
- // and return the value
- return parseFloat(ppi);
 }
+
+
 
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
