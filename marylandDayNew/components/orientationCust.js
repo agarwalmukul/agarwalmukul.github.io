@@ -82,7 +82,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
 // to handle exit vr events for - iOS
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
    //document.querySelector('a-scene').enterVR();
-        stereoLogo.setAttribute('material',"opacity","0");
+        //stereoLogo.setAttribute('material',"opacity","1");
         logo.style.opacity =1;
         //vrbutton.click();
         enteredVR = false;
