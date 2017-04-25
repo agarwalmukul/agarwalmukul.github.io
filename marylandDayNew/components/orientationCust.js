@@ -41,7 +41,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         logo.style.opacity =0;
         //vrbutton.click();
         enteredVR = true;
-}):
+});
 window.addEventListener('deviceorientation', handleOrientation);
 
 }
