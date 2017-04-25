@@ -10,6 +10,8 @@ stereoLogo.setAttribute('position',"-"+Math.min(width, height)*2.5/10000+ " -"+M
 
 var minLength = Math.min(width, height);
 logo.style.width = minLength/5 + "px";
+logo.style.left = minLength/100 + "px";
+logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
 function doOnOrientationChange() {
