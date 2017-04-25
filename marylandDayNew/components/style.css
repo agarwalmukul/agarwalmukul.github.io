@@ -35,3 +35,11 @@ body{
 	width: 80%;
 	opacity: 1;	
 }
+#loadingCircle{
+	position:absolute;
+	bottom: 20%;
+	left: 40%;
+	z-index: -2;
+	width: 20%;
+	opacity: 1;	
+}
