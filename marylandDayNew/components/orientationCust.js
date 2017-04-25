@@ -47,15 +47,18 @@ function handleOrientation(event) {
         //vrbutton.click();
         //enteredVR = true;
         isLandscapeVRModeFirst = true;
-        setTimeout(function(){ 
-          //alert("Hello");
-          var widthScreen = document.documentElement.clientWidth;
-          var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
-          //document.querySelector('.a-canvas').style.width = widthcanvas;
-          document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
-          document.querySelector('.a-canvas').style.right = widthcanvas * (-0.07/2);
-        }, 300);
-      }
+        
+    }
+    if(isLandscapeVRModeFirst){
+      setTimeout(function(){ 
+            //alert("Hello");
+            var widthScreen = document.documentElement.clientWidth;
+            var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
+            //document.querySelector('.a-canvas').style.width = widthcanvas;
+            document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
+            document.querySelector('.a-canvas').style.right = widthcanvas * (-0.07/2);
+          }, 300);
+        }
     }
   // to automatically exit vr mode on portrait mode - for android
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
