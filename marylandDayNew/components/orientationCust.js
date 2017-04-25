@@ -14,6 +14,16 @@ logo.style.left = minLength/100 + "px";
 logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
+/*
+var left = document.querySelector('#left-eye');
+var right = document.querySelector('#right-eye');
+
+left.object3D.scale.x = 2;
+left.object3D.scale.y = 2;
+left.object3D.scale.z = 2;
+right.object3D.scale = [2];
+*/
+
 function doOnOrientationChange() {
     switch(window.orientation) {  
       case -90 || 90:
