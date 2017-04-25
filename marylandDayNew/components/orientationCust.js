@@ -31,7 +31,7 @@ function doOnOrientationChange() {
         break; 
     }
 }
-
+var count = 0;
 function handleOrientation(event) {
   var xpos = event.beta;  // In degree in the range [-180,180]
   var ypos = event.gamma; // In degree in the range [0,360]
@@ -59,14 +59,21 @@ function handleOrientation(event) {
             document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
           }, 300);
     }
-    //var widthScreen = parseInt(document.documentElement.clientWidth);
+    
+    if(count==10){
+    var widthScreen = parseInt(document.documentElement.clientWidth);
     var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
     //document.querySelector('.a-canvas').style.width = widthcanvas;
-    if(Math.max(width,height)==widthcanvas && enteredVR){
+    if(widthScreen==widthcanvas && enteredVR){
       setTimeout(function(){ 
         document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
         document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
       }, 300);
+    }
+    count=0;
+    }
+    else{
+      count++;
     }
   }
   // to automatically exit vr mode on portrait mode - for android
