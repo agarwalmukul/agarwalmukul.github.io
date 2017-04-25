@@ -47,15 +47,6 @@ function handleOrientation(event) {
         //vrbutton.click();
         //enteredVR = true;
         isLandscapeVRModeFirst = true;
-        setTimeout(function(){ 
-          //alert("Hello");
-          var widthScreen = document.documentElement.clientWidth;
-          var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width)/2;
-          //document.querySelector('.a-canvas').style.width = widthcanvas;
-          document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
-          document.querySelector('.a-canvas').style.right = widthcanvas * (-0.07/2);
-        }, 300);
-      
       }
     }
   // to automatically exit vr mode on portrait mode - for android
@@ -82,7 +73,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
 // to handle exit vr events for - iOS
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
    //document.querySelector('a-scene').enterVR();
-        //stereoLogo.setAttribute('material',"opacity","1");
+        stereoLogo.setAttribute('material',"opacity","0");
         logo.style.opacity =1;
         //vrbutton.click();
         enteredVR = false;
