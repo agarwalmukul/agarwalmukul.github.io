@@ -14,6 +14,32 @@ logo.style.left = minLength/100 + "px";
 logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
+
+var stringCode = "data/output_webgl_"
+var leftImage = document.querySelector('#tex1');
+var rightImage = document.querySelector('#tex2');
+leftImage.setAttribute("src", stringCode+"1.png");
+rightImage.setAttribute("src", stringCode+"3.png");
+/*
+var leftDiv = document.createElement("a-entity");
+leftDiv.id = "left-eye";
+leftDiv.setAttribute("geometry","primitive","plane");
+leftDiv.setAttribute("material","src: #tex1; side: double; shader: flat; transparent: true; opacity: 1");
+leftDiv.setAttribute("position","0.63 1.85 -1.2");
+leftDiv.setAttribute("rotation","0 -25 0");
+leftDiv.setAttribute("stereo","eye:left");
+document.querySelector('a-scene').appendChild(leftDiv);
+
+var rightDiv = document.createElement("a-entity");
+rightDiv.id = "right-eye";
+rightDiv.setAttribute("geometry","primitive","plane");
+rightDiv.setAttribute("material","src: #tex1; side: double; shader: flat; transparent: true; opacity: 1");
+rightDiv.setAttribute("position","0.63 1.85 -1.2");
+rightDiv.setAttribute("rotation","0 -25 0");
+rightDiv.setAttribute("stereo","eye:right");
+
+document.querySelector('a-scene').appendChild(rightDiv);
+*/
 /*
 var left = document.querySelector('#left-eye');
 var right = document.querySelector('#right-eye');
