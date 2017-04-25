@@ -11,7 +11,7 @@ stereoLogo.setAttribute('position',"-"+Math.min(width, height)*2.5/10000+ " -"+M
 var minLength = Math.min(width, height);
 logo.style.width = minLength/5 + "px";
 var enteredVR = false;
-
+var isLandscapeVRModeFirst = false;
 function doOnOrientationChange() {
     switch(window.orientation) {  
       case -90 || 90:
@@ -42,15 +42,17 @@ function handleOrientation(event) {
         logo.style.opacity =0;
         //vrbutton.click();
         enteredVR = true;
+        isLandscapeVRModeFirst = true;
       }
     }
   
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
-    if(enteredVR){
+    if(enteredVR && isLandscapeVRModeFirst){
       stereoLogo.setAttribute('material',"opacity","0");
       logo.style.opacity = 1;
       document.querySelector('a-scene').exitVR();
       enteredVR = false;
+      isLandscapeVRModeFirst = false;
     }
   }
 }
@@ -60,9 +62,9 @@ window.addEventListener('orientationchange', doOnOrientationChange);}
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
    //document.querySelector('a-scene').enterVR();
         stereoLogo.setAttribute('material',"opacity","1");
-        logo.style.opacity =0;
+        logo.style.opacity=0;
         //vrbutton.click();
-        //enteredVR = true;
+        enteredVR = true;
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
    //document.querySelector('a-scene').enterVR();
