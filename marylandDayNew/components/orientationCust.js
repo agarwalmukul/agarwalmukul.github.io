@@ -7,7 +7,7 @@ var stereoLogoScale = Math.min(width, height)/10000;
 stereoLogo.setAttribute('width'," "+stereoLogoScale);
 stereoLogo.setAttribute('height'," "+stereoLogoScale);
 stereoLogo.setAttribute('position',"-"+Math.min(width, height)*2.5/10000+ " -"+Math.max(width, height)*2.5/10000+" -0.25");
-
+var firstStretch = false;
 var minLength = Math.min(width, height);
 logo.style.width = minLength/5 + "px";
 logo.style.left = minLength/100 + "px";
@@ -49,7 +49,8 @@ function handleOrientation(event) {
         isLandscapeVRModeFirst = true;
         
     }
-    if(isLandscapeVRModeFirst){
+    if(isLandscapeVRModeFirst && !firstStretch){
+      firstStretch = true;
       setTimeout(function(){ 
             //alert("Hello");
             var widthScreen = document.documentElement.clientWidth;
