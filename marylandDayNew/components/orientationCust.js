@@ -3,8 +3,9 @@ var stereoLogo = document.querySelector('#stereoLogo');
 var logo = document.querySelector('#logo');
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
-stereoLogo.setAttribute('width'," "+width/10000);
-stereoLogo.setAttribute('height'," "+width/10000);
+var stereoLogoScale = Math.min(width, height)/10000;
+stereoLogo.setAttribute('width'," "+stereoLogoScale);
+stereoLogo.setAttribute('height'," "+stereoLogoScale);
 stereoLogo.setAttribute('position',"-"+width*2.5/10000+ " -"+height*2.5/10000+" -0.25");
 var enteredVR = false;
 
