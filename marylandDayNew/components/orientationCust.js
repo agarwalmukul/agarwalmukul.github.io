@@ -62,7 +62,7 @@ function handleOrientation(event) {
     var widthScreen = parseInt(document.documentElement.clientWidth);
     var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
     //document.querySelector('.a-canvas').style.width = widthcanvas;
-    if(widthScreen==widthcanvas){
+    if(widthScreen==widthcanvas && enteredVR){
       setTimeout(function(){ 
         document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
         document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
