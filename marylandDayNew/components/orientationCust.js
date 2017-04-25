@@ -37,7 +37,7 @@ function handleOrientation(event) {
   
   if(Math.abs(xpos)<10 || Math.abs(xpos)>170){
       // keeps record the phone is brought to landscape mode after vr mode on - for android
-      if(!enteredVR){
+      if(enteredVR){
         //document.querySelector('a-scene').enterVR();
         //stereoLogo.setAttribute('material',"opacity","1");
         //stereoLogo.setAttribute('position',"-"+width*5.5/10000+ " -"+height*5/10000+" -0.25");
