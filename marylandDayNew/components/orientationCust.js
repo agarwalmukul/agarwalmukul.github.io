@@ -62,7 +62,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         stereoLogo.setAttribute('material',"opacity","1");
         logo.style.opacity =0;
         //vrbutton.click();
-        enteredVR = true;
+        //enteredVR = true;
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
    //document.querySelector('a-scene').enterVR();
