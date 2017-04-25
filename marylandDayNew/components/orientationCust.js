@@ -56,8 +56,8 @@ function handleOrientation(event) {
             var widthScreen = document.documentElement.clientWidth;
             var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
             //document.querySelector('.a-canvas').style.width = widthcanvas;
-            document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
-            document.querySelector('.a-canvas').style.left = widthcanvas * (-0.07/2);
+            document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
+            document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
           }, 300);
         }
     }
