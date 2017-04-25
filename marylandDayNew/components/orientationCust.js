@@ -57,7 +57,7 @@ function handleOrientation(event) {
             var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
             //document.querySelector('.a-canvas').style.width = widthcanvas;
             document.querySelector('.a-canvas').style.width = widthcanvas * 1.07;
-            document.querySelector('.a-canvas').style.right = widthcanvas * (-0.07/2);
+            document.querySelector('.a-canvas').style.left = widthcanvas * (-0.07/2);
           }, 300);
         }
     }
@@ -69,6 +69,7 @@ function handleOrientation(event) {
       document.querySelector('a-scene').exitVR();
       enteredVR = false;
       isLandscapeVRModeFirst = false;
+      firstStretch = false;
     }
   }
 }
