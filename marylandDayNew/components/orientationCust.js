@@ -14,6 +14,7 @@ logo.style.left = minLength/100 + "px";
 logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
+}
 function doOnOrientationChange() {
     switch(window.orientation) {  
       case -90 || 90:
@@ -104,7 +105,7 @@ document.querySelector('a-scene').addEventListener('exit-vr', function () {
 });
 window.addEventListener('deviceorientation', handleOrientation);
 
-}
+
 
 function getPPI(){
  // create an empty element
