@@ -46,8 +46,7 @@ function handleOrientation(event) {
         //logo.style.opacity =0;
         //vrbutton.click();
         //enteredVR = true;
-        isLandscapeVRModeFirst = true;
-        
+        isLandscapeVRModeFirst = true;   
     }
     if(isLandscapeVRModeFirst && !firstStretch){
       firstStretch = true;
@@ -59,8 +58,15 @@ function handleOrientation(event) {
             document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
             document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
           }, 300);
-        }
     }
+    var widthScreen = document.documentElement.clientWidth;
+    var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
+    //document.querySelector('.a-canvas').style.width = widthcanvas;
+    if(widthScreen==document.querySelector('.a-canvas').style.width){
+      document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
+      document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
+    }
+  }
   // to automatically exit vr mode on portrait mode - for android
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
     if(enteredVR && isLandscapeVRModeFirst){
