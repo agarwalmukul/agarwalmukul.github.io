@@ -26,3 +26,12 @@ body{
 	width: 20%;
 	opacity: 1;
 }
+
+#loading{
+	position:absolute;
+	bottom: 40%;
+	left: 10%;
+	z-index: -2;
+	width: 80%;
+	opacity: 1;	
+}

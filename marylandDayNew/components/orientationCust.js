@@ -29,6 +29,9 @@ function doOnOrientationChange() {
       case -90 || 90:
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
+        if(enteredVR){
+          document.querySelector('.a-canvas').style.top = minLength * (-0.05);
+        }
         break;
       // to automatically exit vr mode on portrait mode - for iOS
       default:
@@ -107,6 +110,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         logo.style.opacity=0;
         //vrbutton.click();
         enteredVR = true;
+
 });
 // to handle exit vr events for - iOS
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
