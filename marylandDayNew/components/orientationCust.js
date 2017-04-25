@@ -18,6 +18,7 @@ function doOnOrientationChange() {
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
         break;
+      // to automatically exit vr mode on portrait mode - for iOS
       default:
         //alert('portrait');
         stereoLogo.setAttribute('material',"opacity","0");
@@ -35,17 +36,18 @@ function handleOrientation(event) {
   var zpos = event.alpha; // In degree in the range [0,360]
   
   if(Math.abs(xpos)<10 || Math.abs(xpos)>170){
+      // keeps record the phone is brought to landscape mode after vr mode on - for android
       if(!enteredVR){
         //document.querySelector('a-scene').enterVR();
-        stereoLogo.setAttribute('material',"opacity","1");
+        //stereoLogo.setAttribute('material',"opacity","1");
         //stereoLogo.setAttribute('position',"-"+width*5.5/10000+ " -"+height*5/10000+" -0.25");
-        logo.style.opacity =0;
+        //logo.style.opacity =0;
         //vrbutton.click();
-        enteredVR = true;
+        //enteredVR = true;
         isLandscapeVRModeFirst = true;
       }
     }
-  
+  // to automatically exit vr mode on portrait mode - for android
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
     if(enteredVR && isLandscapeVRModeFirst){
       stereoLogo.setAttribute('material',"opacity","0");
@@ -66,6 +68,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         //vrbutton.click();
         enteredVR = true;
 });
+// to handle exit vr events for - iOS
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
    //document.querySelector('a-scene').enterVR();
         //stereoLogo.setAttribute('material',"opacity","1");
