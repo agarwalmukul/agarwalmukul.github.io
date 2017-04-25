@@ -20,6 +20,10 @@ var leftImage = document.querySelector('#tex1');
 var rightImage = document.querySelector('#tex2');
 leftImage.setAttribute("src", stringCode+"1.png");
 rightImage.setAttribute("src", stringCode+"3.png");
+
+
+document.querySelector('#loading');.style.opacity = 0;
+document.querySelector('#loadingCircel');logo.style.opacity = 0;
 /*
 var leftDiv = document.createElement("a-entity");
 leftDiv.id = "left-eye";
