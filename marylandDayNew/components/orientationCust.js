@@ -59,8 +59,11 @@ function doOnOrientationChange() {
       case -90 || 90:
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
+        //if the phone goes from portrait to landscape, but what if the phone already is in the landscape mode
         if(enteredVR){
-          document.querySelector('.a-canvas').style.top = minLength * (-0.05);
+          setTimeout(function(){ 
+            document.querySelector('.a-canvas').style.top = minLength * (-0.05);
+          }, 300);
         }
         break;
       // to automatically exit vr mode on portrait mode - for iOS
@@ -140,6 +143,11 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         logo.style.opacity=0;
         //vrbutton.click();
         enteredVR = true;
+        if(getMobileOperatingSystem()=="iOS" && Math.abs(window.orientation)==90){
+          setTimeout(function(){ 
+            document.querySelector('.a-canvas').style.top = minLength * (-0.05);
+          }, 300);
+        }
 
 });
 // to handle exit vr events for - iOS
