@@ -14,14 +14,15 @@ logo.style.left = minLength/100 + "px";
 logo.style.bottom = minLength/100 + "px";
 var enteredVR = false;
 var isLandscapeVRModeFirst = false;
-
+var landscapeModeReload = false;
 var stringCode = "data/output_webgl_"
 var leftImage = document.querySelector('#tex1');
 var rightImage = document.querySelector('#tex2');
 leftImage.setAttribute("src", stringCode+"1.png");
 rightImage.setAttribute("src", stringCode+"3.png");
-
-
+if(Math.abs(window.orientation)==90){
+      landscapeModeReload = true;
+}
 document.querySelector('#loading').style.opacity = 0;
 document.querySelector('#loadingCircle').style.opacity = 0;
 /*
@@ -89,21 +90,21 @@ function handleOrientation(event) {
   var zpos = event.alpha; // In degree in the range [0,360]
   
   if(Math.abs(xpos)<10 || Math.abs(xpos)>170){
-      // keeps record the phone is brought to landscape mode after vr mode on - for android
-      if(enteredVR){
-        //document.querySelector('a-scene').enterVR();
-        //stereoLogo.setAttribute('material',"opacity","1");
-        //stereoLogo.setAttribute('position',"-"+width*5.5/10000+ " -"+height*5/10000+" -0.25");
-        //logo.style.opacity =0;
-        //vrbutton.click();
-        //enteredVR = true;
-        isLandscapeVRModeFirst = true;   
-        //------------ check - because this will make the top as 0 again in the landscape - landscape stereo mode
-        if(getMobileOperatingSystem()=="iOS"){
-          setTimeout(function(){ 
-            document.querySelector('.a-canvas').style.top = 0;
-          }, 300);
-        }
+    // keeps record the phone is brought to landscape mode after vr mode on - for android
+    if(enteredVR){
+      //document.querySelector('a-scene').enterVR();
+      //stereoLogo.setAttribute('material',"opacity","1");
+      //stereoLogo.setAttribute('position',"-"+width*5.5/10000+ " -"+height*5/10000+" -0.25");
+      //logo.style.opacity =0;
+      //vrbutton.click();
+      //enteredVR = true;
+      isLandscapeVRModeFirst = true;   
+      //------------ check - because this will make the top as 0 again in the landscape - landscape stereo mode
+      if(getMobileOperatingSystem()=="iOS"){
+        setTimeout(function(){ 
+          document.querySelector('.a-canvas').style.top = 0;
+        }, 300);
+      }
     }
     if(isLandscapeVRModeFirst && !firstStretch){
       firstStretch = true;
@@ -146,11 +147,11 @@ function handleOrientation(event) {
       firstStretch = false;
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
-            if(!enteredVR){
-              document.querySelector('.a-canvas').style.width = Math.min(width,height);
-              document.querySelector('.a-canvas').style.height = Math.max(width,height);
-              document.querySelector('.a-canvas').width = 3*Math.min(width,height);
-              document.querySelector('.a-canvas').height = 3*Math.max(width,height);
+            if(!enteredVR && !landscapeModeReload){
+              document.querySelector('.a-canvas').style.width = width;
+              document.querySelector('.a-canvas').style.height = height;
+              document.querySelector('.a-canvas').width = 3*width;
+              document.querySelector('.a-canvas').height = 3*height;
               document.querySelector('.a-canvas').style.left = 0;
             }
           }, 300);
