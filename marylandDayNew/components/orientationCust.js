@@ -117,7 +117,7 @@ function handleOrientation(event) {
             document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
           }, 300);
     }
-    
+    /*
     if(count==10){
       var widthScreen = parseInt(document.documentElement.clientWidth);
       var widthcanvas = parseInt(document.querySelector('.a-canvas').style.width);
@@ -135,6 +135,7 @@ function handleOrientation(event) {
     else{
       count++;
     }
+    */
   }
   // to automatically exit vr mode on portrait mode - for android
   if(Math.abs(xpos)>60 && Math.abs(xpos)<120){
