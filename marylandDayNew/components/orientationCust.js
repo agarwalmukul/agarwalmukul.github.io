@@ -98,6 +98,11 @@ function handleOrientation(event) {
         //vrbutton.click();
         //enteredVR = true;
         isLandscapeVRModeFirst = true;   
+        if(getMobileOperatingSystem()=="iOS"){
+          setTimeout(function(){ 
+            document.querySelector('.a-canvas').style.top = 0;
+          }, 300);
+        }
     }
     if(isLandscapeVRModeFirst && !firstStretch){
       firstStretch = true;
@@ -136,6 +141,14 @@ function handleOrientation(event) {
       enteredVR = false;
       isLandscapeVRModeFirst = false;
       firstStretch = false;
+      if(getMobileOperatingSystem()=="iOS"){
+          setTimeout(function(){ 
+            document.querySelector('.a-canvas').style.width = width;
+            document.querySelector('.a-canvas').style.height = height;
+            document.querySelector('.a-canvas').height = 2*height;
+            document.querySelector('.a-canvas').height = 2*height;
+          }, 300);
+        }
     }
   }
 }
