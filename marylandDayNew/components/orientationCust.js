@@ -155,12 +155,12 @@ function handleOrientation(event) {
               document.querySelector('.a-canvas').style.left = 0;
             }
             if(landscapeModeReload){
-              var widthLandscape = document.querySelector('.a-canvas').style.width;
-              var widthLandscapeCanvas = document.querySelector('.a-canvas').width
-              document.querySelector('.a-canvas').style.width = document.querySelector('.a-canvas').style.height;
-              document.querySelector('.a-canvas').style.height = widthLandscape;
-              document.querySelector('.a-canvas').width = document.querySelector('.a-canvas').height;
-              document.querySelector('.a-canvas').height = widthLandscapeCanvas;
+              //var widthLandscape = document.querySelector('.a-canvas').style.width;
+              //var widthLandscapeCanvas = document.querySelector('.a-canvas').width
+              document.querySelector('.a-canvas').style.width = document.querySelector('.a-canvas').width/2;
+              document.querySelector('.a-canvas').style.height = document.querySelector('.a-canvas').height/2;
+              //document.querySelector('.a-canvas').width = document.querySelector('.a-canvas').height;
+              //document.querySelector('.a-canvas').height = widthLandscapeCanvas;
               document.querySelector('.a-canvas').style.left = 0;
             }
           }, 300);
