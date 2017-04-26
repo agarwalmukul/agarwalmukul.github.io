@@ -3,9 +3,6 @@ var stereoLogo = document.querySelector('#stereoLogo');
 var logo = document.querySelector('#logo');
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
-//var canvasWidth = document.querySelector('.a-canvas').width;
-//var canvasHeight = document.querySelector('.a-canvas').height;
-
 var stereoLogoScale = Math.min(width, height)/10000;
 stereoLogo.setAttribute('width'," "+stereoLogoScale);
 stereoLogo.setAttribute('height'," "+stereoLogoScale);
@@ -59,12 +56,9 @@ right.object3D.scale = [2];
 */
 
 function doOnOrientationChange() {
-    
+    /*
     switch(window.orientation) {  
       case -90 || 90:
-      if(getMobileOperatingSystem()!="iOS"){
-        document.querySelector('a-scene').exitVR();
-      }
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
         //if the phone goes from portrait to landscape, but what if the phone already is in the landscape mode
@@ -148,20 +142,17 @@ function handleOrientation(event) {
     if(enteredVR && isLandscapeVRModeFirst){
       stereoLogo.setAttribute('material',"opacity","0");
       logo.style.opacity = 1;
-      if(getMobileOperatingSystem()!="iOS"){
-        document.querySelector('a-scene').exitVR();
-      }
+      document.querySelector('a-scene').exitVR();
       enteredVR = false;
       isLandscapeVRModeFirst = false;
       firstStretch = false;
-      /*
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             if(!enteredVR && !landscapeModeReload){
               document.querySelector('.a-canvas').style.width = width;
               document.querySelector('.a-canvas').style.height = height;
-              document.querySelector('.a-canvas').width = canvasWidth;
-              document.querySelector('.a-canvas').height = canvasHeight;
+              document.querySelector('.a-canvas').width = 3*width;
+              document.querySelector('.a-canvas').height = 3*height;
               document.querySelector('.a-canvas').style.left = 0;
             }
             if(landscapeModeReload){
@@ -177,7 +168,6 @@ function handleOrientation(event) {
             }
           }, 300);
         }
-        */
     }
   }
 }
