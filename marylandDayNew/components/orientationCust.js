@@ -125,6 +125,8 @@ function handleOrientation(event) {
         setTimeout(function(){ 
           document.querySelector('.a-canvas').style.width = widthcanvas * 1.04;
           document.querySelector('.a-canvas').style.left = widthcanvas * (-0.04/2);
+          if(getMobileOperatingSystem()=="iOS"){
+          document.querySelector('.a-canvas').style.top = minLength * (-0.15);}
         }, 300);
       }
       count=0;
