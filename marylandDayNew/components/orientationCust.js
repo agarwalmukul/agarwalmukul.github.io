@@ -149,8 +149,8 @@ function handleOrientation(event) {
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             if(!enteredVR && !landscapeModeReload){
-              document.querySelector('.a-canvas').style.width = width;
-              document.querySelector('.a-canvas').style.height = height;
+              document.querySelector('.a-canvas').style.width = window.screen.availWidth;
+              document.querySelector('.a-canvas').style.height = window.screen.availHeight;
               document.querySelector('.a-canvas').width = 3*window.screen.availWidth;
               document.querySelector('.a-canvas').height = 3*window.screen.availHeight;
               document.querySelector('.a-canvas').style.left = 0;
