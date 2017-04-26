@@ -147,10 +147,10 @@ function handleOrientation(event) {
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             if(!enteredVR){
-              document.querySelector('.a-canvas').style.width = width;
-              document.querySelector('.a-canvas').style.height = height;
-              document.querySelector('.a-canvas').width = 3*width;
-              document.querySelector('.a-canvas').height = 3*height;
+              document.querySelector('.a-canvas').style.width = Math.min(width,height);
+              document.querySelector('.a-canvas').style.height = Math.max(width,height);
+              document.querySelector('.a-canvas').width = 3*Math.min(width,height);
+              document.querySelector('.a-canvas').height = 3*Math.max(width,height);
               document.querySelector('.a-canvas').style.left = 0;
             }
           }, 300);
