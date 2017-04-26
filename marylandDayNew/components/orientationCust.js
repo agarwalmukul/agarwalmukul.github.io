@@ -56,9 +56,12 @@ right.object3D.scale = [2];
 */
 
 function doOnOrientationChange() {
-    /*
+    
     switch(window.orientation) {  
       case -90 || 90:
+        if(getMobileOperatingSystem()!="iOS"){
+          document.querySelector('a-scene').exitVR();
+        }
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
         //if the phone goes from portrait to landscape, but what if the phone already is in the landscape mode
@@ -69,8 +72,9 @@ function doOnOrientationChange() {
           }, 300);
         }
         */
-        /*
+        
         break;
+        /*
       // to automatically exit vr mode on portrait mode - for iOS
       default:
         //alert('portrait');
@@ -80,8 +84,9 @@ function doOnOrientationChange() {
         enteredVR = false;
         //logo.style.width = minLength/5 + "px";
         break; 
+        */
     }
-    */
+    
 }
 var count = 0;
 function handleOrientation(event) {
@@ -142,10 +147,17 @@ function handleOrientation(event) {
     if(enteredVR && isLandscapeVRModeFirst){
       stereoLogo.setAttribute('material',"opacity","0");
       logo.style.opacity = 1;
+      if(getMobileOperatingSystem()=="iOS"){
       document.querySelector('a-scene').exitVR();
+    }
       enteredVR = false;
       isLandscapeVRModeFirst = false;
       firstStretch = false;
+
+
+
+      /*
+
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             if(!enteredVR && !landscapeModeReload){
@@ -168,6 +180,11 @@ function handleOrientation(event) {
             }
           }, 300);
         }
+
+*/
+
+
+
     }
   }
 }
