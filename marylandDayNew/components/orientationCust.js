@@ -149,6 +149,7 @@ function handleOrientation(event) {
               document.querySelector('.a-canvas').style.height = height;
               document.querySelector('.a-canvas').width = 3*width;
               document.querySelector('.a-canvas').height = 3*height;
+              document.querySelector('.a-canvas').style.left = 0;
             }
           }, 300);
         }
