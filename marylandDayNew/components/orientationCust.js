@@ -98,6 +98,7 @@ function handleOrientation(event) {
         //vrbutton.click();
         //enteredVR = true;
         isLandscapeVRModeFirst = true;   
+        //------------ check - because this will make the top as 0 again in the landscape - landscape stereo mode
         if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             document.querySelector('.a-canvas').style.top = 0;
@@ -145,7 +146,7 @@ function handleOrientation(event) {
           setTimeout(function(){ 
             document.querySelector('.a-canvas').style.width = width;
             document.querySelector('.a-canvas').style.height = height;
-            document.querySelector('.a-canvas').height = 2*height;
+            document.querySelector('.a-canvas').width = 2*width;
             document.querySelector('.a-canvas').height = 2*height;
           }, 300);
         }
@@ -164,7 +165,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         enteredVR = true;
         if(getMobileOperatingSystem()=="iOS" && Math.abs(window.orientation)==90){
           setTimeout(function(){ 
-            document.querySelector('.a-canvas').style.top = minLength * (-0.05);
+            document.querySelector('.a-canvas').style.top = minLength * (-0.08);
           }, 300);
         }
 
