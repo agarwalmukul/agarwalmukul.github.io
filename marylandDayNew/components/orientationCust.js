@@ -23,7 +23,6 @@ rightImage.setAttribute("src", stringCode+"3.png");
 
 
 document.querySelector('#loading').style.opacity = 0;
-document.querySelector('#loading').style.width = minLength/2 + "px";
 document.querySelector('#loadingCircle').style.opacity = 0;
 /*
 var leftDiv = document.createElement("a-entity");
