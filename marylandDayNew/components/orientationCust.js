@@ -144,10 +144,12 @@ function handleOrientation(event) {
       firstStretch = false;
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
-            document.querySelector('.a-canvas').style.width = width;
-            document.querySelector('.a-canvas').style.height = height;
-            document.querySelector('.a-canvas').width = 2*width;
-            document.querySelector('.a-canvas').height = 2*height;
+            if(!enteredVR){
+              document.querySelector('.a-canvas').style.width = width;
+              document.querySelector('.a-canvas').style.height = height;
+              document.querySelector('.a-canvas').width = 2*width;
+              document.querySelector('.a-canvas').height = 2*height;
+            }
           }, 300);
         }
     }
