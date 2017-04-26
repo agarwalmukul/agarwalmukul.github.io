@@ -3,8 +3,8 @@ var stereoLogo = document.querySelector('#stereoLogo');
 var logo = document.querySelector('#logo');
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
-var canvasWidth = document.querySelector('.a-canvas').width;
-var canvasHeight = document.querySelector('.a-canvas').height;
+//var canvasWidth = document.querySelector('.a-canvas').width;
+//var canvasHeight = document.querySelector('.a-canvas').height;
 
 var stereoLogoScale = Math.min(width, height)/10000;
 stereoLogo.setAttribute('width'," "+stereoLogoScale);
@@ -87,7 +87,7 @@ function doOnOrientationChange() {
         //logo.style.width = minLength/5 + "px";
         break; 
     }
-    
+    */
 }
 var count = 0;
 function handleOrientation(event) {
@@ -149,7 +149,8 @@ function handleOrientation(event) {
       stereoLogo.setAttribute('material',"opacity","0");
       logo.style.opacity = 1;
       if(getMobileOperatingSystem()!="iOS"){
-        document.querySelector('a-scene').exitVR();}
+        document.querySelector('a-scene').exitVR();
+      }
       enteredVR = false;
       isLandscapeVRModeFirst = false;
       firstStretch = false;
