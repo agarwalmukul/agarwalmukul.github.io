@@ -59,7 +59,7 @@ function doOnOrientationChange() {
     
     switch(window.orientation) {  
       case -90 || 90:
-        if(getMobileOperatingSystem()!="iOS"){
+        if(getMobileOperatingSystem()=="iOS"){
           document.querySelector('a-scene').exitVR();
         }
         //alert('landscape');
@@ -147,7 +147,7 @@ function handleOrientation(event) {
     if(enteredVR && isLandscapeVRModeFirst){
       stereoLogo.setAttribute('material',"opacity","0");
       logo.style.opacity = 1;
-      if(getMobileOperatingSystem()=="iOS"){
+      if(getMobileOperatingSystem()!="iOS"){
       document.querySelector('a-scene').exitVR();
     }
       enteredVR = false;
