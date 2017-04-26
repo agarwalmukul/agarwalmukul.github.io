@@ -3,6 +3,9 @@ var stereoLogo = document.querySelector('#stereoLogo');
 var logo = document.querySelector('#logo');
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
+var canvasWidth = document.querySelector('.a-canvas').width;
+var canvasHeight = document.querySelector('.a-canvas').height;
+
 var stereoLogoScale = Math.min(width, height)/10000;
 stereoLogo.setAttribute('width'," "+stereoLogoScale);
 stereoLogo.setAttribute('height'," "+stereoLogoScale);
@@ -149,17 +152,17 @@ function handleOrientation(event) {
       if(getMobileOperatingSystem()=="iOS"){
           setTimeout(function(){ 
             if(!enteredVR && !landscapeModeReload){
-              document.querySelector('.a-canvas').style.width = window.screen.availWidth;
-              document.querySelector('.a-canvas').style.height = window.screen.availHeight;
-              document.querySelector('.a-canvas').width = 3*window.screen.availWidth;
-              document.querySelector('.a-canvas').height = 3*window.screen.availHeight;
+              document.querySelector('.a-canvas').style.width = width;
+              document.querySelector('.a-canvas').style.height = height;
+              document.querySelector('.a-canvas').width = canvasWidth;
+              document.querySelector('.a-canvas').height = canvasHeight;
               document.querySelector('.a-canvas').style.left = 0;
             }
             if(landscapeModeReload){
               //var widthLandscape = document.querySelector('.a-canvas').style.width;
               //var widthLandscapeCanvas = document.querySelector('.a-canvas').width
               document.querySelector('.a-canvas').style.width = window.screen.availWidth;
-              document.querySelector('.a-canvas').style.height = window.screen.availHeight;
+              document.querySelector('.a-canvas').style.height = window.screen.availWidth;
               //document.querySelector('.a-canvas').style.width = document.querySelector('.a-canvas').width/3;
               //document.querySelector('.a-canvas').style.height = document.querySelector('.a-canvas').height/3;
               //document.querySelector('.a-canvas').width = document.querySelector('.a-canvas').height;
