@@ -60,11 +60,13 @@ function doOnOrientationChange() {
         //alert('landscape');
         //logo.style.width = minLength/5 + "px";
         //if the phone goes from portrait to landscape, but what if the phone already is in the landscape mode
+        /*
         if(enteredVR){
           setTimeout(function(){ 
             document.querySelector('.a-canvas').style.top = minLength * (-0.05);
           }, 300);
         }
+        */
         break;
       // to automatically exit vr mode on portrait mode - for iOS
       default:
@@ -135,7 +137,8 @@ function handleOrientation(event) {
   }
 }
 if(getMobileOperatingSystem()=="iOS"){
-window.addEventListener('orientationchange', doOnOrientationChange);}
+//window.addEventListener('orientationchange', doOnOrientationChange);
+}
 
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
    //document.querySelector('a-scene').enterVR();
