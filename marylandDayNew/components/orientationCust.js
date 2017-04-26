@@ -169,7 +169,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         if(getMobileOperatingSystem()=="iOS" && Math.abs(window.orientation)==90){
           setTimeout(function(){ 
             document.querySelector('.a-canvas').style.top = minLength * (-0.15);
-          }, 300);
+          }, 700);
         }
 
 });
