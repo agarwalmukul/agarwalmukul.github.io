@@ -55,6 +55,7 @@ right.object3D.scale = [2];
 */
 
 function doOnOrientationChange() {
+    /*
     switch(window.orientation) {  
       case -90 || 90:
         //alert('landscape');
@@ -67,6 +68,7 @@ function doOnOrientationChange() {
           }, 300);
         }
         */
+        /*
         break;
       // to automatically exit vr mode on portrait mode - for iOS
       default:
@@ -78,6 +80,7 @@ function doOnOrientationChange() {
         //logo.style.width = minLength/5 + "px";
         break; 
     }
+    */
 }
 var count = 0;
 function handleOrientation(event) {
@@ -137,7 +140,7 @@ function handleOrientation(event) {
   }
 }
 if(getMobileOperatingSystem()=="iOS"){
-//window.addEventListener('orientationchange', doOnOrientationChange);
+  window.addEventListener('orientationchange', doOnOrientationChange);
 }
 
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
