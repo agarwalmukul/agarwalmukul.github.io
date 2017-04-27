@@ -28,9 +28,9 @@
 		  	<!--<a-entity cubemap="folder: data/mckeldin-mall/" position = "0 0 0" rotation="90 0 0"></a-entity>-->
 		  	<a-sky src="#skybox" phi-start="45" rotation="0 0 0"></a-sky>
 
-			<a-entity id="left-eye" geometry="primitive: plane" material="src: #tex1; side: double; shader: flat; transparent: true; opacity: 0.99" scale="4 4 4" position="0.63 0.7 -4.8" rotation="0 -5 0" stereo="eye:left"></a-entity>
+			<a-entity id="left-eye" geometry="primitive: plane" material="src: #tex1; side: double; shader: flat; transparent: true; opacity: 1" scale="4 4 4" position="0.63 0.7 -4.8" rotation="0 -5 0" stereo="eye:left"></a-entity>
 
-			<a-entity id="right-eye" geometry="primitive: plane" material="src: #tex2; side: double; shader: flat; transparent: true; opacity: 0.99" scale="4 4 4" position="0.63 0.7 -4.8" rotation="0 -5 0" stereo="eye:right"></a-entity>
+			<a-entity id="right-eye" geometry="primitive: plane" material="src: #tex2; side: double; shader: flat; transparent: true; opacity: 1" scale="4 4 4" position="0.63 0.7 -4.8" rotation="0 -5 0" stereo="eye:right"></a-entity>
 
 		  	<a-camera fov="60" zoom="1" look-controls id="camera" stereocam="eye:left;">
 		  		<a-plane id="stereoLogo" width="0.1" height="0.1" src="#logo" material="transparent: true; opacity: 0" position="-0.1 -0.1 -0.25"></a-plane>
