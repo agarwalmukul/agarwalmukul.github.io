@@ -26,7 +26,7 @@ var url = window.location.href;
 var code = url.slice(-9);
 code = code.substring(0,3);
 var stringCode = "images/webgl/" + code + "_output_webgl_";
-//var stringCode = "data/VG1_output_webgl_"
+var stringCode = "data/VG1_output_webgl_"
 var leftImage = document.querySelector('#left-eye');
 var rightImage = document.querySelector('#right-eye');
 leftImage.setAttribute("material","src", stringCode+"3.png");
