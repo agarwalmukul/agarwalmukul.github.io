@@ -21,11 +21,17 @@ if(Math.abs(window.orientation)==90){
 document.querySelector('#loading').style.opacity = 0;
 document.querySelector('#loadingCircle').style.opacity = 0;
 
+//code ending will look like this xyz.webgl
+//var url = window.location.href;
+//var code = url.substring(-9,3);
+//var stringCode = ""
 var stringCode = "data/ABC_output_webgl_"
 var leftImage = document.querySelector('#tex1');
 var rightImage = document.querySelector('#tex2');
 leftImage.setAttribute("src", stringCode+"3.png");
 rightImage.setAttribute("src", stringCode+"4.png");
+
+
 
 function doOnOrientationChange() {    
     switch(window.orientation) {  
