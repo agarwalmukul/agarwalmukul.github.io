@@ -97,11 +97,13 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
         logo.style.opacity=0;
         //vrbutton.click();
         enteredVR = true;
+        /*
         if(getMobileOperatingSystem()=="iOS" && Math.abs(window.orientation)==90){
           setTimeout(function(){ 
             document.querySelector('.a-canvas').style.top = minLength * (-0.15);
           }, 700);
         }
+        */
 
 });
 // to handle exit vr events for - iOS
