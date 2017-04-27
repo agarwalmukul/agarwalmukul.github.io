@@ -21,7 +21,7 @@ if(Math.abs(window.orientation)==90){
 document.querySelector('#loading').style.opacity = 0;
 document.querySelector('#loadingCircle').style.opacity = 0;
 
-var stringCode = "data/output_webgl_"
+var stringCode = "data/ABC_output_webgl_"
 var leftImage = document.querySelector('#tex1');
 var rightImage = document.querySelector('#tex2');
 leftImage.setAttribute("src", stringCode+"3.png");
