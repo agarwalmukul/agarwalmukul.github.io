@@ -29,8 +29,8 @@ code = code.substring(0,3);
 var stringCode = "data/VG1_output_webgl_"
 var leftImage = document.querySelector('#left-eye');
 var rightImage = document.querySelector('#right-eye');
-leftImage.setAttribute("material","src", stringCode+"3.png");
-rightImage.setAttribute("material","src", stringCode+"4.png");
+leftImage.setAttribute("material","src:" stringCode+"3.png side: double; shader: flat; transparent: true; opacity: 0.99");
+rightImage.setAttribute("material","src:" stringCode+"4.png side: double; shader: flat; transparent: true; opacity: 0.99");
 
 function doOnOrientationChange() {    
     switch(window.orientation) {  
